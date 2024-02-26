@@ -1,0 +1,99 @@
+body {
+    background-color: #080F28;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 400px;
+    background-color: #dda90e;
+    text-align: center;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-wrapper label, .input-wrapper input[type=text] {
+    margin: 5px;
+}
+
+.button {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    background: #1096ef;
+    font-size: 17px;
+    padding: 5px;
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+#result {
+    font-size: 22px;
+    font-weight: bold;
+    background-color: white;
+    color: #080F28;
+    padding: 10px;
+}
+
+#betting {
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: white;
+    padding: 10px;
+    color: #080F28;
+    
+}
+.button {
+    background-color: #080F28;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: #1f1858;
+    
+}
+
+
+.toggle-button {
+    margin-top: 15px;
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background: #080F28;
+    font-size: 17px;
+    padding: 5px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.toggle-button.active {
+    background: #1096ef;
+    color: #fff;
+}
+
+.toggle-button:hover {
+    opacity: 0.8;
+}
