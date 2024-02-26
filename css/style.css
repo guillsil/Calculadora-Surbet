@@ -1,5 +1,13 @@
 body {
-    background-color: #080F28;
+    background: linear-gradient(to right, #080F28, #dda90e, #080F28);
+    background-size: 200% 200%;
+    animation: animatedBackground 10s infinite;
+}
+
+@keyframes animatedBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .center {
@@ -25,75 +33,69 @@ body {
     margin: 5px;
 }
 
-.button {
-    margin-top: 15px;
-    margin-left: 10px;
-    width: 100px;
+.button, .toggle-button {
+    width: 150px;
     height: 40px;
-    background: #1096ef;
-    font-size: 17px;
-    padding: 5px;
-}
-
-.button:hover {
-    opacity: 0.8;
-}
-
-#result {
-    font-size: 22px;
-    font-weight: bold;
-    background-color: white;
-    color: #080F28;
     padding: 10px;
-}
-
-#betting {
     font-size: 20px;
-    margin-top: 10px;
-    background-color: white;
-    padding: 10px;
-    color: #080F28;
-    
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
 }
+
+
 .button {
     background-color: #080F28;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
+    color: #dda90e;
     transition-duration: 0.4s;
 }
 
 .button:hover {
-    background-color: #1f1858;
-    
+    background-color: #122f97;
 }
 
-
 .toggle-button {
-    margin-top: 15px;
-    margin-left: 10px;
-    width: 100px;
-    height: 40px;
-    color: white;
+    color: #dda90e;
     background: #080F28;
-    font-size: 17px;
-    padding: 5px;
-    border: none;
-    cursor: pointer;
-    text-align: center;
 }
 
 .toggle-button.active {
-    background: #1096ef;
+    background: blue;
     color: #fff;
 }
 
 .toggle-button:hover {
     opacity: 0.8;
+}
+
+#result, #betting {
+    font-size: 20px;
+    margin-top: 10px;
+    background-color: #080F28;
+    padding: 10px;
+    color: white;
+}
+/* Media queries para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .center {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .button span, .toggle-button span {
+        display: none; /* Ocultar el texto */
+    }
+}
+@media screen and (max-width: 480px) {
+    .button, .toggle-button {
+        width: 80px;
+        height: 30px;
+        font-size: 15px;
+        padding: 0; /* Eliminar el relleno para que los iconos ocupen todo el espacio */
+    }
+
+    .button span, .toggle-button span {
+        display: none; /* Ocultar el texto */
+    }
 }
