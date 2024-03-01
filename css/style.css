@@ -49,43 +49,22 @@ body {
     background-color: #080F28;
     color: #dda90e;
     transition-duration: 0.4s;
+    font-size: 18px;
+    margin-right: 10px;
 }
 
 .button:hover {
     background-color: #122f97;
 }
 
-.toggle-button {
-    color: #dda90e;
-    background: #080F28;
-}
-
-.toggle-button.active {
-    background: blue;
-    color: #fff;
-}
-
-.toggle-button:hover {
-    opacity: 0.8;
-}
-
 .button-row {
     display: flex;
     justify-content: space-evenly;
     margin-top: 20px;
-    margin-bottom: 1px;
-}
-
-.special-button {
-    background-color: white;
-    color: #dda90e;
-}
-
-.special-button:hover {
-    background-color: #ffd700;
-    color: #080F28;
-}
-
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}       
 
 #result, #betting {
     font-size: 20px;
@@ -113,7 +92,7 @@ body {
         padding: 0; /* Eliminar el relleno para que los iconos ocupen todo el espacio */
     }
 
-    .button span, .toggle-button span {
+    .button span {
         display: none; /* Ocultar el texto */
     }
 }
