@@ -13,30 +13,42 @@
 
 </head>
 <body>
-<div class="center">
-    <h1>Calculadora para Apuestas Seguras (Surebet)</h1>
-    <div class="input-wrapper">
-        <label>Introduzca la Apuesta A:</label>
-        <input type="text" id="input1" placeholder="Ingrese un valor">
+    <div class="center">
+        <h1>Calculadora para Apuestas Seguras (Surebet)</h1>
+        <div class="input-wrapper">
+            <label>Introduzca la Apuesta A:</label>
+            <input type="text" id="input1" placeholder="Ingrese un valor">
+        </div>
+        <div class="input-wrapper">
+            <label>Introduzca la Apuesta B:</label>
+            <input type="text" id="input2" placeholder="Ingrese un otro valor">
+        </div>
+        <div class="input-wrapper">
+            <label>Dinero a Apostar:</label>
+            <input type="text" id="input4" placeholder="Ingrese el monto">
+        </div>
+        <div class="button-row">
+            <button class="button" id="calculate"><span>Calculate  </span><i class="fas fa-calculator"></i></button>
+            <button class="toggle-button" id="roundToggleButton"><span>Redondear </span><i class="fas fa-sync-alt"></i></button>
+            <button class="button" id="specialButton"><i class="fa-solid fa-plus"></i><span>  Apuesta</span></button>
+        </div>
+        <div class="button-row">
+            <button class="button special-button" id="clear"><span>Reiniciar  </span><i class="fas fa-redo-alt"></i></button>
+        </div>
+    
+        <p id="result"></p>
+        <p id="betting"></p>
     </div>
-    <div class="input-wrapper">
-        <label>Introduzca la Apuesta B:</label>
-        <input type="text" id="input2" placeholder="Ingrese un otro valor">
-    </div>
-    <div class="input-wrapper">
-        <label>Dinero a Apostar:</label>
-        <input type="text" id="input4" placeholder="Ingrese el monto">
-    </div>
-    <button class="button" id="calculate"><span>Calculate  </span><i class="fas fa-calculator"></i></button>
-    <button class="button" id="clear"><span>Reiniciar  </span><i class="fas fa-redo-alt"></i></button>
-    <button class="toggle-button" id="roundToggleButton"><span></span><i class="fas fa-sync-alt"></i></button>
+    <script>
+        // Agregar un event listener al botón "Apuesta"
+        document.getElementById("specialButton").addEventListener("click", mostrarMensajePersonalizado);
+        
+        // Función para mostrar un mensaje personalizado
+        function mostrarMensajePersonalizado() {
+            alert("¡Has presionado el botón de Apuesta! Este boton permitira añadir otra apuesta , actualmente no esta implementado.");
+        }
+    </script>
 
-
-
-    <p id="result"></p>
-    <p id="betting"></p>
-</div>
-
-<script src="/js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

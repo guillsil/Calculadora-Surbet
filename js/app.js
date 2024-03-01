@@ -51,8 +51,8 @@ function calculate() {
     }
 
     document.getElementById("result").innerHTML = isSurebet ? "Sí, esta es una apuesta segura.!" : "No, esto no es una apuesta segura.!";
-    document.getElementById("betting").innerHTML = "Deberias Apostar $" + howMuchbet1.toFixed(2) + " a la Apuesta 1 y $" + howMuchbet_2.toFixed(2) +
-        " a la apuesta 2. El beneficio que puedes obtener es $" + winning.toFixed(2) + " con un porcentaje de ganancia del " + profitPercentage.toFixed(2) + "%.";
+    document.getElementById("betting").innerHTML = "Deberías Apostar $" + howMuchbet_2.toLocaleString('es-ES', {minimumFractionDigits: 2}) + " a la Apuesta A y $" + howMuchbet1.toLocaleString('es-ES', {minimumFractionDigits: 2}) +
+        " a la apuesta B. El beneficio que puedes obtener es $" + winning.toLocaleString('es-ES', {minimumFractionDigits: 2}) + " con un porcentaje de ganancia del " + profitPercentage.toLocaleString('es-ES', {minimumFractionDigits: 2}) + "%.";
 }
 
 function clearInputs() {

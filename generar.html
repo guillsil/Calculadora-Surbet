@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generador de Posibilidades para Combinaciones</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="icon" href="/rsc/leo.png" type="image/png">
+    <script src="https://kit.fontawesome.com/6271527c2a.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculadora para Apuestas Seguras (Surebet)">
+    <meta name="keywords" content="apuestas, surebet, calculadora, dinero, ganar, apostar">
+    <meta name="author" content="Leo">
+    <meta name="robots" content="index, follow">
+
+</head>
+<body>
+    <div class="center">
+        <h1>Generador de Posibilidades para Combinaciones</h1>
+        <div class="input-wrapper">
+            <label>Cantidad de resultados Posibles:</label>
+            <input type="number" id="input1" placeholder="Por ejemplo 2 o 3" min="2" max="3">
+        </div>
+        <div class="input-wrapper">
+            <label>Cantidad de Partidos a Combinar:</label>
+            <input type="number" id="input2" placeholder="Ingresa la cantidad de partidos" min="1">
+        </div>
+        <div class="button-row">
+            <button class="button special-button" id="generate"><span>Generar  </span><i class="fas fa-redo-alt"></i></button>
+        </div>
+        <div>
+            <textarea id="combinations" rows="10" cols="50" readonly></textarea>
+        </div>
+    </div>
+    <script>
+        // Define un array con los valores posibles
+        const valores = ['A', 'B', 'X'];
+        
+        // Función para generar todas las combinaciones posibles
+        function generarCombinaciones(resultados, partidos) {
+            const combinaciones = [];
+            generarCombinacionesRecursivo([], resultados, partidos, combinaciones);
+            return combinaciones.join('\n');
+        }
+
+        function generarCombinacionesRecursivo(combinacionParcial, resultados, partidos, combinaciones) {
+            if (combinacionParcial.length === partidos) {
+                combinaciones.push(combinacionParcial.join(','));
+                return;
+            }
+
+            for (let i = 0; i < resultados.length; i++) {
+                const nuevoValor = resultados[i];
+                generarCombinacionesRecursivo([...combinacionParcial, nuevoValor], resultados, partidos, combinaciones);
+            }
+        }
+        
+        // Agregar un event listener al botón "Generar"
+        document.getElementById("generate").addEventListener("click", function() {
+            const cantidadResultados = parseInt(document.getElementById("input1").value);
+            const cantidadPartidos = parseInt(document.getElementById("input2").value);
+            
+            // Verificar que las entradas sean válidas
+            if (isNaN(cantidadResultados) || isNaN(cantidadPartidos) || cantidadResultados < 2 || cantidadResultados > 3 || cantidadPartidos < 1) {
+                alert("Por favor, ingrese valores válidos.");
+                return;
+            }
+            
+            const combinaciones = generarCombinaciones(valores.slice(0, cantidadResultados), cantidadPartidos);
+            document.getElementById("combinations").value = combinaciones;
+        });
+    </script>
+</body>
+</html>
