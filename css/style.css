@@ -1,7 +1,7 @@
 body {
     background: linear-gradient(to right, #080F28, #dda90e, #080F28);
     background-size: 200% 200%;
-    animation: animatedBackground 10s infinite;
+    animation: animatedBackground 8s infinite;
 }
 
 @keyframes animatedBackground {
@@ -17,8 +17,9 @@ body {
     transform: translate(-50%, -50%);
     width: 800px;
     height: 400px;
-    background-color: #dda90e;
     text-align: center;
+    background-color: #dda90e;
+    animation: animatedBackground 8s infinite;
 }
 
 .input-wrapper {

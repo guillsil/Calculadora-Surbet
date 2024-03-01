@@ -70,3 +70,5 @@ function toggleRound() {
     document.getElementById("roundToggleButton").classList.toggle("active");
     calculate(); // Recalculate with the new state of the round button
 }
+
+        
