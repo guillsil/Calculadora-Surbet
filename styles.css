@@ -137,7 +137,7 @@ body {
   grid-template-columns: 1fr 1fr;
 }
 .resultado__odd1, .resultado__odd2 {
-  font-size: 0.75em;
+  font-size: 0.5em;
   color: hsl(189, 41%, 97%);
 }
 .resultado__valor1, .resultado__valor2 {
