@@ -1,0 +1,211 @@
+@use "variables";
+
+@use "inicial";
+
+@use "mixins";
+
+.header-titulo{
+    text-align: center;
+    color: variables.$Dark-grayish-cyan;
+    font-size: 1em;
+    margin: 30px 0;
+    letter-spacing: 8px;
+
+}
+
+.calculadora-container{
+    background-color: variables.$White;
+    width: 375px;
+    margin: auto;
+    border-radius: 16px;
+    padding: 32px;
+
+}
+
+.input-seccion__odd-label{
+    @include mixins.label;
+}
+
+.input-seccion__odd-input{
+    @include mixins.input('../images/sure.svg');
+    background-color: variables.$Very-lightgrayish-cyan;
+}
+
+.input-seccion__monto-label{
+    @include mixins.label;
+}
+
+.input-seccion__monto-input{
+    @include mixins.input('../images/icon-dollar.svg');
+    background-color: variables.$Light-grayish-cyan;
+}
+
+
+.btns{
+    border: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+.btns__boton{
+    width: 147px;
+    height: 45px;
+    background-color: variables.$Very-dark-cyan;
+    font-family: variables.$font;
+    font-size: 1em;
+    border: none;
+    border-radius: 4px;
+    color: variables.$White;
+    transition-duration: 1s;
+    &:hover{
+        cursor: pointer;
+        background-color: variables.$Strong-cyan;
+    }
+    &__custom{
+        background-color: variables.$Dark-grayish-cyan;
+    }
+}
+
+.error{
+    border: 2px solid red;
+}
+
+.result-seccion{
+    background-color: variables.$Very-dark-cyan;
+    border-radius: 8px;
+    padding: 32px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.resultado{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    &__odd1{ 
+        font-size: 0.75em;
+        color: variables.$Very-lightgrayish-cyan
+    }
+    &__valor1{
+        font-size: 0.65em;
+        color: variables.$Light-grayish-cyan;
+    }
+    &__tip-odd1{
+        font-size: 1.2em;
+        color: variables.$Strong-cyan;
+        text-align: right;
+    }
+    &__odd2{
+        @extend .resultado__odd1;
+    }
+    &__valor2{
+        @extend .resultado__valor1;
+    }
+    &__tip-odd2{
+        @extend .resultado__tip-odd1;
+    }
+    &__result-abajo{
+        display: grid;
+        font-size: 0.7em;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+        color: variables.$Light-grayish-cyan;
+        &__porcentaje{
+            background: url('../images/percent.svg') no-repeat 10px center;
+            background-size: 0.8em;
+            padding-left: 30px;
+        }
+        &__ganancia{
+            background: url('../images/icon-dollar.svg') no-repeat 10px center;
+            background-size: 0.8em;
+            padding-left: 30px;
+        }
+
+    }
+    
+}
+
+.result-seccion__reset{
+    background-color: variables.$Strong-cyan;
+    font-family: variables.$font;
+    color: variables.$Very-dark-cyan;
+    border: none;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-size: 1em;
+    height: 50px;
+    transition-duration: 1s;
+    &:hover{
+        cursor: pointer;
+        background-color: variables.$Very-lightgrayish-cyan;
+    }
+}
+.attribution { 
+    font-size: 14px; 
+    text-align: center; 
+    margin: 40px 0;
+}
+
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
+
+///////////////////////////            Desktop        ////////////////////////
+@media (min-width: 1024px){
+    .header-titulo{
+        margin: 60px 0 50px;
+        font-size: 1.2em;
+    }
+
+    .calculadora-container{
+        width: 900px;
+        display: flex;
+        gap: 50px;
+    
+    }
+    .inputs-seccion{
+        flex : 1;
+    }
+
+    .result-seccion{
+        flex: 1;
+    }
+
+    .btns{
+        &__boton{
+            width: 120px;
+        }
+        
+    }
+    .btns__boton{
+        width: 100%;
+    }
+    .attribution{
+        margin: 40px 0 100px;
+    }
+    .resultado{
+        &__odd1{
+            font-size: 0.8em;
+        }
+        &__valor1{
+            font-size: 0.7em;
+        }
+        &__tip-odd1{
+            font-size: 1em;
+        }
+        &__odd2{
+            @extend .resultado__odd1;
+        }
+        &__valor2{
+            @extend .resultado__valor1;
+        }
+        &__tip-odd2{
+            @extend .resultado__tip-odd1;
+        }
+    }
+}

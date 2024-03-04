@@ -1,51 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Calculadora (Surebet)</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="icon" href="/rsc/leo.png" type="image/png">
-    <script src="https://kit.fontawesome.com/6271527c2a.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculadora para Apuestas Seguras (Surebet)">
-    <meta name="keywords" content="apuestas, surebet, calculadora, dinero, ganar, apostar">
-    <meta name="author" content="Leo">
-    <meta name="robots" content="index, follow">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="/styles.css">
+  <title> SureBet Calculator App</title>
 </head>
 <body>
-    <div class="center">
-        <h1>Calculadora para (Surebet)</h1>
-        <div class="input-wrapper">
-            <label>Apuesta 1:</label>   
-            <input type="text" id="input1" placeholder="Ingrese una apuesta">
-        </div>
-        <div class="input-wrapper">
-            <label>Apuesta 2:</label>
-            <input type="text" id="input2" placeholder="Ingrese otra apuesta">
-        </div>
-        <div class="input-wrapper">
-            <label>Monto:</label>
-            <input type="text" id="input4" placeholder="Ingrese el monto a apostar">
-        </div>
-        <div class="button-row">
-            <button class="button" id="calculate"><i class="fas fa-calculator"></i><span>  Calcular</span></button>
-            <button class="button" id="roundToggleButton"><i class="fas fa-sync-alt"></i><span>  Redondear</span></button>
-            <button class="button" id="clear"><i class="fas fa-redo-alt"></i><span>  Reiniciar</span></button>
-            <button class="button special-button" id="specialButton"><i class="fa-solid fa-plus"></i><span>  Apuesta</span></button>
-        </div>
-    
-        <p id="result"></p>
-        <p id="betting"></p>
-    </div>
-    <script>
-        // Agregar un event listener al botón "Apuesta"
-        document.getElementById("specialButton").addEventListener("click", mostrarMensajePersonalizado);
-        
-        // Función para mostrar un mensaje personalizado
-        function mostrarMensajePersonalizado() {
-            alert("¡Has presionado el botón de Apuesta! Este boton permitira añadir otra apuesta , actualmente no esta implementado.");
-        }
-    </script>
+  
+  <header class="header">
+    <h1 class="header-titulo">Sure <br>bet</h1>
+  </header>
 
-    <script src="/js/app.js"></script>
+  <section class="calculadora-container">
+    <div class="inputs-seccion">
+      <label class="input-seccion__odd-label">Apuesta 1</label>
+      <input id="input1" class="input-seccion__odd-input" type="number" placeholder="Ingrese una apuesta">
+
+      <label class="input-seccion__odd-label">Apuesta 2</label>
+      <input id="input2" class="input-seccion__odd-input" type="number" placeholder="Ingrese otra apuesta">
+
+      <label class="input-seccion__monto-label">Monto</label>
+      <input id="monto" class="input-seccion__monto-input" type="number" placeholder="Ingrese el monto">
+
+      <fieldset class="btns">
+        <button class="btns__boton btns__boton__custom" id="calculate">Calcular</button>
+        <button class="btns__boton" id="specialButton">?</button>
+      </fieldset>
+
+    </div>
+    <div class="result-seccion" id="result betting">
+      <div class="resultado">
+        <div>
+          <p class="resultado__odd1">Apuesta 1</p>
+          <p class="resultado__valor1">/recomendacion</p>
+        </div>
+
+        <p class="resultado__tip-odd1" id="resultado-odd1">0</p>
+
+        <div>
+          <p class="resultado__odd2">Apuesta 2</p>
+          <p class="resultado__valor2">/recomendacion</p>
+        </div>
+
+        <p class="resultado__tip-odd2" id="resultado-odd2">0</p>
+
+        <div class="resultado__result-abajo">
+          <p class="resultado__result-abajo__porcentaje" id="resultado-porcentaje">100</p>
+
+          <p class="resultado__result-abajo__ganancia" id="resultado-ganancia">100</p>
+        </div>
+        
+        
+      </div>
+      <button class="result-seccion__reset" id="clear">Reiniciar</button>
+    </div>
+
+  </section>
+
+  
+  
+  <div class="attribution">
+    Creado por <a href="https://github.com/guillsil" target="_blank">Elliug</a>. 
+  </div>
+
+  <script src="/js/main.js"></script>
 </body>
 </html>
