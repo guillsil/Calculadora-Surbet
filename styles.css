@@ -145,7 +145,7 @@ body {
   color: hsl(185, 41%, 84%);
 }
 .resultado__tip-odd1, .resultado__tip-odd2 {
-  font-size: 1.2em;
+  font-size: 0.9em;
   color: hsl(172, 67%, 45%);
   text-align: right;
 }
