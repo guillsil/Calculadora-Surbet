@@ -45,11 +45,7 @@ function calculate() {
     howMuchbet1 = stake / (dividing + 1);
     howMuchbet_2 = stake - howMuchbet1;
 
-    if (tax === 0) {
-        winning = (howMuchbet1 * Bigodd) - stake;
-    } else {
-        winning = (howMuchbet1 * Bigodd) - (howMuchbet1 * Bigodd) - stake;
-    }
+    winning = (howMuchbet1 * Bigodd) - stake;
 
     profitPercentage = ((winning / (stake * 2)) * 100 * 2); // Calculating profit percentage
 
