@@ -1,15 +1,28 @@
 document.getElementById("calculate").addEventListener("click", calculate);
 document.getElementById("clear").addEventListener("click", clearInputs);
 
+// Añadir eventos input a los campos de entrada de las apuestas y al campo de entrada del monto
+document.getElementById("input1").addEventListener("input", function() {
+    if (document.getElementById("monto").value.trim() !== "") {
+        calculate();
+    }
+});
+document.getElementById("input2").addEventListener("input", function() {
+    if (document.getElementById("monto").value.trim() !== "") {
+        calculate();
+    }
+});
+document.getElementById("monto").addEventListener("input", function() {
+    if (document.getElementById("input1").value.trim() !== "" && document.getElementById("input2").value.trim() !== "") {
+        calculate();
+    }
+});
+
+
 function calculate() {
     var input1 = document.getElementById("input1").value.trim();
     var input2 = document.getElementById("input2").value.trim();
     var input4 = document.getElementById("monto").value.trim();
-
-    if (input1 === "" || input2 === "" || input4 === "") {
-        alert("Por favor Complete Correctamente o sera golpeado.");
-        return; // No hacer nada si falta algún valor
-    }
 
     var odd1 = parseFloat(document.getElementById("input1").value);
     var odd2 = parseFloat(document.getElementById("input2").value);
@@ -55,10 +68,10 @@ function calculate() {
     var specialButton = document.getElementById("specialButton");
     if (isSurebet) {
         specialButton.textContent = "Surebet";
-        specialButton.style.backgroundColor = "#0fc73cff"; // Cambia el color del botón a verde si es una surebet
+        specialButton.style.backgroundColor = "#0fc73cff";
     } else {
         specialButton.textContent = "No Surebet";
-        specialButton.style.backgroundColor = "#c70f0fff"; // Cambia el color del botón a rojo si no es una surebet
+        specialButton.style.backgroundColor = "#c70f0fff";
     }
 }
 
