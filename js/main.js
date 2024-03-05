@@ -3,12 +3,12 @@ document.getElementById("clear").addEventListener("click", clearInputs);
 
 // Añadir eventos input a los campos de entrada de las apuestas y al campo de entrada del monto
 document.getElementById("input1").addEventListener("input", function() {
-    if (document.getElementById("monto").value.trim() !== "") {
+    if (document.getElementById("monto").value.trim() !== "" && document.getElementById("input2").value.trim() !== ""){
         calculate();
     }
 });
 document.getElementById("input2").addEventListener("input", function() {
-    if (document.getElementById("monto").value.trim() !== "") {
+    if (document.getElementById("monto").value.trim() !== "" && document.getElementById("input1").value.trim() !== ""){
         calculate();
     }
 });
