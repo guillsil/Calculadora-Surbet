@@ -26,7 +26,6 @@ function calculate() {
 
     var odd1 = parseFloat(document.getElementById("input1").value);
     var odd2 = parseFloat(document.getElementById("input2").value);
-    var tax = 0;
     var stake = parseFloat(document.getElementById("monto").value);
 
     var result = 1 / odd1 + 1 / odd2;
