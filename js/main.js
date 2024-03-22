@@ -36,7 +36,9 @@ function showAddInput() {
     tipOdd3.classList.remove("hidden");
     specialButton.style.display = "none";
     newspecialButton.style.display = "block";
-    ocultarBotonAdd.style.display = "none";
+    ocultarBotonAdd.style.display = "none"
+
+    limpiarGenericsInputs();
 }
 
 function clearAddInputs() {
@@ -133,7 +135,7 @@ function calculate() {
 
 
 
-function clearInputs() {
+function limpiarGenericsInputs() {
     document.getElementById("input1").value = "";
     document.getElementById("input2").value = "";
     document.getElementById("monto").value = "";
@@ -143,6 +145,10 @@ function clearInputs() {
     document.getElementById("resultado-porcentaje").textContent = "0";
     document.getElementById("specialButton").textContent = "?";
     document.getElementById("specialButton").style.backgroundColor = "";
+}
+
+function clearInputs() {
+    limpiarGenericsInputs();
     clearAddInputs();
     document.getElementById("input3").value = "";
     document.getElementById("resultado-odd3").textContent = "0";
