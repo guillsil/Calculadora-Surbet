@@ -145,9 +145,11 @@ body {
 }
 .btns__boton__custom {
   background-color: hsl(186, 14%, 43%);
+  width: 100%;
 }
-.btns__boton__custom-add {
-  background-color: hsl(183, 100%, 15%);
+.btns__boton__custom__add {
+  background-color: hsl(172, 67%, 45%);
+  width: 100%;
 }
 
 .error {
@@ -221,7 +223,7 @@ body {
 .attribution {
   font-size: 14px;
   text-align: center;
-  margin: 40px 0;
+  margin: 35px 0;
 }
 
 .attribution a {

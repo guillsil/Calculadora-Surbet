@@ -64,11 +64,14 @@
     width: 147px;
     @include mixins.btns-boton(variables.$Strong-cyan);
     &__custom{
-        background-color: variables.$Dark-grayish-cyan; 
+        background-color: variables.$Dark-grayish-cyan;
+        width: 100%;
+        &__add{
+            background-color: variables.$Strong-cyan;
+            width: 100%;
+        }
     }
-    &__custom-add{
-        background-color: variables.$Very-dark-cyan;
-    }
+    
 }
 
 .error{
@@ -161,7 +164,7 @@
 .attribution { 
     font-size: 14px; 
     text-align: center; 
-    margin: 40px 0;
+    margin: 35px 0;
 }
 
 
