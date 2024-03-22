@@ -39,6 +39,9 @@ function showAddInput() {
     ocultarBotonAdd.style.display = "none"
 
     limpiarGenericsInputs();
+
+    document.getElementById("input3").value = "";
+    document.getElementById("resultado-odd3").textContent = "0.00";;
 }
 
 function clearAddInputs() {
@@ -139,10 +142,10 @@ function limpiarGenericsInputs() {
     document.getElementById("input1").value = "";
     document.getElementById("input2").value = "";
     document.getElementById("monto").value = "";
-    document.getElementById("resultado-odd1").textContent = "0";
-    document.getElementById("resultado-odd2").textContent = "0";
-    document.getElementById("resultado-ganancia").textContent = "0";
-    document.getElementById("resultado-porcentaje").textContent = "0";
+    document.getElementById("resultado-odd1").textContent = "0.00";
+    document.getElementById("resultado-odd2").textContent = "0.00";
+    document.getElementById("resultado-ganancia").textContent = "0.00";
+    document.getElementById("resultado-porcentaje").textContent = "0.00";
     document.getElementById("specialButton").textContent = "?";
     document.getElementById("specialButton").style.backgroundColor = "";
 }
