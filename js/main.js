@@ -148,6 +148,8 @@ function limpiarGenericsInputs() {
     document.getElementById("resultado-porcentaje").textContent = "0.00";
     document.getElementById("specialButton").textContent = "?";
     document.getElementById("specialButton").style.backgroundColor = "";
+    document.getElementById("newSpecialButton").textContent = "?";
+    document.getElementById("newSpecialButton").style.backgroundColor = "";
 }
 
 function clearInputs() {
