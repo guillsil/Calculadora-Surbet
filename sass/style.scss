@@ -40,7 +40,7 @@
 }
 
 .input-seccion__monto-input{
-    @include mixins.input('../images/icon-dollar.svg');
+    @include mixins.input('../images/icon-dollar-two.svg');
     background-color: variables.$Light-grayish-cyan;
 }
 

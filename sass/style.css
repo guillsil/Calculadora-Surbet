@@ -81,7 +81,7 @@ body {
   height: 40px;
   margin-bottom: 5px;
   background-color: hsl(220, 41%, 97%);
-  background: url("../images/icon-dollar.svg") no-repeat 10px center;
+  background: url("../images/icon-dollar-two.svg") no-repeat 10px center;
   background-color: hsl(220, 41%, 84%);
 }
 .input-seccion__monto-input:hover {
