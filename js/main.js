@@ -20,12 +20,14 @@ document.getElementById("monto").addEventListener("input", function() {
 });
 
 function showAddInput() {
-    var label = document.querySelector(".inputs-seccion .input-seccion__odd-label.hidden");
-    var input = document.querySelector(".inputs-seccion .input-seccion__odd-input.hidden");
+    var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres.hidden");
+    var input = document.querySelector(".inputs-seccion .input-seccion__odd-input__tres.hidden");
     var odd3 = document.querySelector(".resultado__odd3.hidden");
     var valor3 = document.querySelector(".resultado__valor3.hidden");
     var tipOdd3 = document.querySelector(".resultado__tip-odd3.hidden");
-    var specialButton = document.getElementById("specialButton"); 
+    var specialButton = document.getElementById("specialButton");
+    var newspecialButton = document.getElementById("newSpecialButton");
+    var ocultarBotonAdd = document.getElementById("agregar");
 
     label.classList.remove("hidden");
     input.classList.remove("hidden");
@@ -33,6 +35,28 @@ function showAddInput() {
     valor3.classList.remove("hidden");
     tipOdd3.classList.remove("hidden");
     specialButton.style.display = "none";
+    newspecialButton.style.display = "block";
+    ocultarBotonAdd.style.display = "none";
+}
+
+function clearAddInputs() {
+    var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres");
+    var input = document.querySelector(".inputs-seccion .input-seccion__odd-input__tres");
+    var odd3 = document.querySelector(".resultado__odd3");
+    var valor3 = document.querySelector(".resultado__valor3");
+    var tipOdd3 = document.querySelector(".resultado__tip-odd3");
+    var specialButton = document.getElementById("specialButton");
+    var newspecialButton = document.getElementById("newSpecialButton");
+    var ocultarBotonAdd = document.getElementById("agregar");
+
+    label.classList.add("hidden");
+    input.classList.add("hidden");
+    odd3.classList.add("hidden");
+    valor3.classList.add("hidden");
+    tipOdd3.classList.add("hidden");
+    specialButton.style.display = "block";
+    newspecialButton.style.display = "none";
+    ocultarBotonAdd.style.display = "block";
 }
 
 function calculate() {
@@ -80,20 +104,26 @@ function calculate() {
     if (isSurebet) {
         specialButton.textContent = "Surebet";
         specialButton.style.backgroundColor = "#0fc73cff";
+        newSpecialButton.textContent = "Surebet";
+        newSpecialButton.style.backgroundColor = "#0fc73cff";
     } else {
         specialButton.textContent = "No Surebet";
         specialButton.style.backgroundColor = "#c70f0fff";
+        newSpecialButton.textContent = "No Surebet";
+        newSpecialButton.style.backgroundColor = "#c70f0fff";
     }
+   
 }
 
 function clearInputs() {
     document.getElementById("input1").value = "";
     document.getElementById("input2").value = "";
     document.getElementById("monto").value = "";
-    document.getElementById("resultado-odd1").textContent = "";
-    document.getElementById("resultado-odd2").textContent = "";
-    document.getElementById("resultado-ganancia").textContent = "";
-    document.getElementById("resultado-porcentaje").textContent = "";
+    document.getElementById("resultado-odd1").textContent = "0";
+    document.getElementById("resultado-odd2").textContent = "0";
+    document.getElementById("resultado-ganancia").textContent = "000";
+    document.getElementById("resultado-porcentaje").textContent = "000";
     document.getElementById("specialButton").textContent = "?";
     document.getElementById("specialButton").style.backgroundColor = "";
+    clearAddInputs();
 }
