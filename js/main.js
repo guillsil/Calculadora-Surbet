@@ -60,43 +60,60 @@ function clearAddInputs() {
 }
 
 function calculate() {
-    var input1 = document.getElementById("input1").value.trim();
-    var input2 = document.getElementById("input2").value.trim();
-    var input4 = document.getElementById("monto").value.trim();
-
     var odd1 = parseFloat(document.getElementById("input1").value);
     var odd2 = parseFloat(document.getElementById("input2").value);
+    var odd3 = parseFloat(document.getElementById("input3").value); 
     var stake = parseFloat(document.getElementById("monto").value);
 
-    var result = 1 / odd1 + 1 / odd2;
+    var result = 1 / odd1 + 1 / odd2 + (odd3 ? 1 / odd3 : 0); // Solo incluir odd3 si está presente
     var isSurebet = result < 1 ? true : false;
 
-    var dividing, Bigodd, howMuchbet1, howMuchbet_2, winning, profitPercentage;
+    // Normalizar las probabilidades
+    var normalOdd1 = (1 / odd1) / result;
+    var normalOdd2 = (1 / odd2) / result;
+    var normalOdd3 = odd3 ? (1 / odd3) / result : 0; // Normalizar solo si odd3 está presente
 
-    if (odd1 > odd2) {
-        dividing = odd1 / odd2;
-        Bigodd = odd1;
-    } else {
-        dividing = odd2 / odd1;
-        Bigodd = odd2;
+    // Ganancia en cada apuesta
+    var ganancia1 = stake / normalOdd1;
+    var ganancia2 = stake / normalOdd2;
+    var ganancia3 = odd3 ? stake / normalOdd3 : 0; // Calcular ganancia solo si odd3 está presente
+
+    // Calculo de la cantidad a apostar
+    var howMuchbet_1 = stake * normalOdd1;
+    var howMuchbet_2 = stake * normalOdd2;
+    var howMuchbet_3 = odd3 ? stake * normalOdd3 : 0; // Calcular solo si odd3 está presente
+
+    // Calculo de la ganancia de cada apuesta
+    var winning_1 = howMuchbet_1 * odd1 - stake;
+    var winning_2 = howMuchbet_2 * odd2 - stake;
+    var winning_3 = howMuchbet_3 * odd3 - stake;
+
+    // Calculo de la ganancia total
+    var totalWinning = winning_1 + winning_2 ;
+    var profitPercentage = 0;
+
+    // Solo incluir la ganancia de la tercera apuesta si odd3 está presente
+    if (odd3) {
+        totalWinning += winning_3;
+        profitPercentage = (totalWinning / (stake * 3)) * 100;
+    }else{
+        totalWinning = totalWinning/2;
+        profitPercentage = (totalWinning / (stake * 2)) * 100*2;
     }
 
-    howMuchbet1 = stake / (dividing + 1);
-    howMuchbet_2 = stake - howMuchbet1;
 
-    winning = (howMuchbet1 * Bigodd) - stake;
-
-    profitPercentage = ((winning / (stake * 2)) * 100 * 2); // Calculating profit percentage
-
-    //redondeo
-    howMuchbet1 = Math.round(howMuchbet1);
+    // Redondeo
+    howMuchbet_1 = Math.round(howMuchbet_1);
     howMuchbet_2 = Math.round(howMuchbet_2);
-    winning = Math.round(winning);
+    howMuchbet_3 = Math.round(howMuchbet_3);
+    totalWinning = Math.round(totalWinning);
     profitPercentage = Math.round(profitPercentage);
     
-    document.getElementById("resultado-odd1").textContent = howMuchbet_2.toLocaleString('es-ES', { minimumFractionDigits: 2 });
-    document.getElementById("resultado-odd2").textContent = howMuchbet1.toLocaleString('es-ES', { minimumFractionDigits: 2 });
-    document.getElementById("resultado-ganancia").textContent = winning.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+    // Actualización de los elementos HTML con los resultados
+    document.getElementById("resultado-odd1").textContent = howMuchbet_1.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+    document.getElementById("resultado-odd2").textContent = howMuchbet_2.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+    document.getElementById("resultado-odd3").textContent = howMuchbet_3.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+    document.getElementById("resultado-ganancia").textContent = totalWinning.toLocaleString('es-ES', { minimumFractionDigits: 2 });
     document.getElementById("resultado-porcentaje").textContent = profitPercentage.toLocaleString('es-ES', { minimumFractionDigits: 2 });
 
     // Mostrar si es surebet o no
@@ -112,8 +129,9 @@ function calculate() {
         newSpecialButton.textContent = "No Surebet";
         newSpecialButton.style.backgroundColor = "#c70f0fff";
     }
-   
 }
+
+
 
 function clearInputs() {
     document.getElementById("input1").value = "";
@@ -121,9 +139,11 @@ function clearInputs() {
     document.getElementById("monto").value = "";
     document.getElementById("resultado-odd1").textContent = "0";
     document.getElementById("resultado-odd2").textContent = "0";
-    document.getElementById("resultado-ganancia").textContent = "000";
-    document.getElementById("resultado-porcentaje").textContent = "000";
+    document.getElementById("resultado-ganancia").textContent = "0";
+    document.getElementById("resultado-porcentaje").textContent = "0";
     document.getElementById("specialButton").textContent = "?";
     document.getElementById("specialButton").style.backgroundColor = "";
     clearAddInputs();
+    document.getElementById("input3").value = "";
+    document.getElementById("resultado-odd3").textContent = "0";
 }
