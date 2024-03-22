@@ -18,8 +18,12 @@
     width: 375px;
     margin: auto;
     border-radius: 16px;
-    padding: 32px;
+    padding: 20px;
+    margin-bottom: 2px;
 
+}
+.hidden{
+    display: none;
 }
 
 .input-seccion__odd-label{
@@ -75,6 +79,8 @@
     background-color: variables.$Very-dark-cyan;
     border-radius: 8px;
     padding: 32px 24px 24px;
+    margin-bottom: 25px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -103,6 +109,15 @@
         @extend .resultado__valor1;
     }
     &__tip-odd2{
+        @extend .resultado__tip-odd1;
+    }
+    &__odd3{
+        @extend .resultado__odd1;
+    }
+    &__valor3{
+        @extend .resultado__valor1;
+    }
+    &__tip-odd3{
         @extend .resultado__tip-odd1;
     }
     &__result-abajo{
@@ -157,7 +172,7 @@
 ///////////////////////////            Desktop        ////////////////////////
 @media (min-width: 1024px){
     .header-titulo{
-        margin: 60px 0 50px;
+        margin: 30px 0 30px;
         font-size: 1.2em;
     }
 

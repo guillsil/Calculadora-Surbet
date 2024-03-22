@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="sass/style.css">
   <title>G.Sure bet Calculator</title>
 </head>
+
 <body>
   <header class="header">
     <h1 class="header-titulo">G.Sure <br>bet +.+</h1>
@@ -19,6 +21,10 @@
 
       <label class="input-seccion__odd-label">Apuesta 2</label>
       <input id="input2" class="input-seccion__odd-input" type="number" placeholder="Ingrese otra apuesta">
+
+      <label class="input-seccion__odd-label hidden">Apuesta 3</label>
+      <input id="input3" class="input-seccion__odd-input hidden" type="number" placeholder="Ingrese otra apuesta">
+
 
       <label class="input-seccion__monto-label">Monto</label>
       <input id="monto" class="input-seccion__monto-input" type="number" placeholder="Ingrese el monto">
@@ -48,25 +54,35 @@
 
         <p class="resultado__tip-odd2" id="resultado-odd2">0</p>
 
+        <div>
+          <p class="resultado__odd3 hidden">Apuesta 3</p>
+          <p class="resultado__valor3 hidden">/recomendacion</p>
+        </div>
+
+        <p class="resultado__tip-odd3 hidden" id="resultado-odd3">0</p>
+
+
+
         <div class="resultado__result-abajo">
           <p class="resultado__result-abajo__porcentaje" id="resultado-porcentaje">100</p>
 
           <p class="resultado__result-abajo__ganancia" id="resultado-ganancia">100</p>
         </div>
-        
-        
+
+
       </div>
       <button class="result-seccion__reset" id="clear">Reiniciar</button>
     </div>
 
   </section>
 
-  
-  
+
+
   <div class="attribution">
-    Creado por <a href="https://github.com/guillsil" target="_blank">Elliug</a>. 
+    Creado por <a href="https://github.com/guillsil" target="_blank">Elliug</a>.
   </div>
 
   <script src="/js/main.js"></script>
 </body>
+
 </html>

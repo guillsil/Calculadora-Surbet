@@ -1,5 +1,6 @@
 document.getElementById("calculate").addEventListener("click", calculate);
 document.getElementById("clear").addEventListener("click", clearInputs);
+document.getElementById("agregar").addEventListener("click", showAddInput);
 
 // Añadir eventos input a los campos de entrada de las apuestas y al campo de entrada del monto
 document.getElementById("input1").addEventListener("input", function() {
@@ -18,6 +19,21 @@ document.getElementById("monto").addEventListener("input", function() {
     }
 });
 
+function showAddInput() {
+    var label = document.querySelector(".inputs-seccion .input-seccion__odd-label.hidden");
+    var input = document.querySelector(".inputs-seccion .input-seccion__odd-input.hidden");
+    var odd3 = document.querySelector(".resultado__odd3.hidden");
+    var valor3 = document.querySelector(".resultado__valor3.hidden");
+    var tipOdd3 = document.querySelector(".resultado__tip-odd3.hidden");
+    var specialButton = document.getElementById("specialButton"); 
+
+    label.classList.remove("hidden");
+    input.classList.remove("hidden");
+    odd3.classList.remove("hidden");
+    valor3.classList.remove("hidden");
+    tipOdd3.classList.remove("hidden");
+    specialButton.style.display = "none";
+}
 
 function calculate() {
     var input1 = document.getElementById("input1").value.trim();
