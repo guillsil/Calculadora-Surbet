@@ -78,4 +78,6 @@ function clearInputs() {
     document.getElementById("resultado-odd2").textContent = "";
     document.getElementById("resultado-ganancia").textContent = "";
     document.getElementById("resultado-porcentaje").textContent = "";
+    document.getElementById("specialButton").textContent = "?";
+    document.getElementById("specialButton").style.backgroundColor = "";
 }
