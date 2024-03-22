@@ -13,7 +13,7 @@ body {
 
 .header-titulo {
   text-align: center;
-  color: hsl(220, 14%, 43%);
+  color: hsl(221, 39%, 35%);
   font-size: 1em;
   margin: 30px 0;
   letter-spacing: 8px;
@@ -152,6 +152,10 @@ body {
   background-color: hsl(45, 100%, 50%);
   width: 100%;
 }
+.btns__boton__custom__add:hover {
+  cursor: pointer;
+  background-color: hsl(45, 86%, 45%);
+}
 
 .error {
   border: 2px solid red;
@@ -217,7 +221,7 @@ body {
 }
 .result-seccion__reset:hover {
   cursor: pointer;
-  background-color: hsl(220, 41%, 97%);
+  background-color: hsl(45, 86%, 45%);
 }
 
 .attribution {
