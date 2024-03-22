@@ -34,7 +34,7 @@ body {
 }
 
 .input-seccion__odd-label {
-  color: hsl(220, 14%, 43%);
+  color: hsl(219, 60%, 28%);
   font-size: 0.75em;
   margin-bottom: 3px;
 }
@@ -65,7 +65,7 @@ body {
 }
 
 .input-seccion__monto-label {
-  color: hsl(220, 14%, 43%);
+  color: hsl(219, 60%, 28%);
   font-size: 0.75em;
   margin-bottom: 3px;
 }
@@ -126,7 +126,7 @@ body {
 }
 .btns-status__boton:hover {
   cursor: pointer;
-  background-color: hsl(220, 14%, 43%);
+  background-color: hsl(219, 60%, 28%);
 }
 
 .btns__boton {
@@ -142,10 +142,10 @@ body {
 }
 .btns__boton:hover {
   cursor: pointer;
-  background-color: hsl(45, 100%, 50%);
+  background-color: hsl(220, 100%, 15%);
 }
 .btns__boton__custom {
-  background-color: hsl(220, 14%, 43%);
+  background-color: hsl(219, 60%, 28%);
   width: 100%;
 }
 .btns__boton__custom__add {

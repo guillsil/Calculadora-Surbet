@@ -62,7 +62,7 @@
 
 .btns__boton{
     width: 147px;
-    @include mixins.btns-boton(variables.$Strong-cyan);
+    @include mixins.btns-boton(variables.$Very-dark-cyan);
     &__custom{
         background-color: variables.$Dark-grayish-cyan;
         width: 100%;
