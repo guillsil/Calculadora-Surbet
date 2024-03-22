@@ -125,14 +125,14 @@ function calculate() {
     var specialButton = document.getElementById("specialButton");
     if (isSurebet) {
         specialButton.textContent = "Surebet";
-        specialButton.style.backgroundColor = "#0fc73cff";
+        specialButton.style.backgroundColor = "hsl(45, 100%, 50%)";
         newSpecialButton.textContent = "Surebet";
-        newSpecialButton.style.backgroundColor = "#0fc73cff";
+        newSpecialButton.style.backgroundColor = "hsl(45, 100%, 50%)";
     } else {
         specialButton.textContent = "No Surebet";
-        specialButton.style.backgroundColor = "#c70f0fff";
+        specialButton.style.backgroundColor = "hsl(220, 100%, 15%)";
         newSpecialButton.textContent = "No Surebet";
-        newSpecialButton.style.backgroundColor = "#c70f0fff";
+        newSpecialButton.style.backgroundColor = "hsl(220, 100%, 15%)";
     }
 }
 
