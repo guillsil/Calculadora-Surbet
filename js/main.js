@@ -44,18 +44,15 @@ function showAddInput() {
     specialButton.style.display = "none";
     newspecialButton.style.display = "block";
     ocultarBotonAdd.style.display = "none"
-    
     var botones = document.querySelectorAll(".btns-status__boton");
+    var header_titulo = document.querySelectorAll(".header-titulo");
+    var btns_status = document.querySelectorAll(".btns-status");
     botones.forEach(function(boton) {
         boton.classList.add("pressed");
     });
-
-    var btns_status = document.querySelectorAll(".btns-status");
     btns_status.forEach(function(boton) {
         boton.classList.add("pressed-status");
     });
-
-    var header_titulo = document.querySelectorAll(".header-titulo");
     header_titulo.forEach(function(boton) {
         boton.classList.add("pressed-titulo");
     });
@@ -182,11 +179,15 @@ function clearInputs() {
     document.getElementById("input3").value = "";
     document.getElementById("resultado-odd3").textContent = "0";
     var botones = document.querySelectorAll(".btns-status__boton");
+    var header_titulo = document.querySelectorAll(".header-titulo");
+    var btns_status = document.querySelectorAll(".btns-status");
     botones.forEach(function(boton) {
         boton.classList.remove("pressed");
     });
-    var btns_status = document.querySelectorAll(".btns-status");
     btns_status.forEach(function(boton) {
     boton.classList.remove("pressed-status");
+    });
+    header_titulo.forEach(function(boton) {
+        boton.classList.remove("pressed-titulo");
     });
 }
