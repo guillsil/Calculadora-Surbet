@@ -13,11 +13,18 @@ document.getElementById("input2").addEventListener("input", function() {
         calculate();
     }
 });
+document.getElementById("input3").addEventListener("input", function() {
+    if (document.getElementById("monto").value.trim() !== "" && document.getElementById("input1").value.trim() !== "" && document.getElementById("input2").value.trim() !== ""){
+        calculate();
+    }
+}
+);
 document.getElementById("monto").addEventListener("input", function() {
     if (document.getElementById("input1").value.trim() !== "" && document.getElementById("input2").value.trim() !== "") {
         calculate();
     }
 });
+
 
 function showAddInput() {
     var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres.hidden");
@@ -28,7 +35,7 @@ function showAddInput() {
     var specialButton = document.getElementById("specialButton");
     var newspecialButton = document.getElementById("newSpecialButton");
     var ocultarBotonAdd = document.getElementById("agregar");
-
+  
     label.classList.remove("hidden");
     input.classList.remove("hidden");
     odd3.classList.remove("hidden");
@@ -37,12 +44,25 @@ function showAddInput() {
     specialButton.style.display = "none";
     newspecialButton.style.display = "block";
     ocultarBotonAdd.style.display = "none"
+    
+    var botones = document.querySelectorAll(".btns-status__boton");
+    botones.forEach(function(boton) {
+        boton.classList.add("pressed");
+    });
+
+    var btns_status = document.querySelectorAll(".btns-status");
+    btns_status.forEach(function(boton) {
+    boton.classList.add("pressed-status");
+    });
 
     limpiarGenericsInputs();
-
+  
     document.getElementById("input3").value = "";
-    document.getElementById("resultado-odd3").textContent = "0.00";;
+    document.getElementById("resultado-odd3").textContent = "0.00";
+  
+    
 }
+  
 
 function clearAddInputs() {
     var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres");
@@ -125,17 +145,16 @@ function calculate() {
     var specialButton = document.getElementById("specialButton");
     if (isSurebet) {
         specialButton.textContent = "Surebet";
-        specialButton.style.backgroundColor = "hsl(45, 100%, 50%)";
+        specialButton.style.backgroundImage = "linear-gradient(90deg, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
         newSpecialButton.textContent = "Surebet";
-        newSpecialButton.style.backgroundColor = "hsl(45, 100%, 50%)";
+        newSpecialButton.style.backgroundImage = "linear-gradient(90deg, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
     } else {
         specialButton.textContent = "No Surebet";
-        specialButton.style.backgroundColor = "hsl(220, 100%, 15%)";
+        specialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
         newSpecialButton.textContent = "No Surebet";
-        newSpecialButton.style.backgroundColor = "hsl(220, 100%, 15%)";
+        newSpecialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
     }
 }
-
 
 
 function limpiarGenericsInputs() {
@@ -157,4 +176,12 @@ function clearInputs() {
     clearAddInputs();
     document.getElementById("input3").value = "";
     document.getElementById("resultado-odd3").textContent = "0";
+    var botones = document.querySelectorAll(".btns-status__boton");
+    botones.forEach(function(boton) {
+        boton.classList.remove("pressed");
+    });
+    var btns_status = document.querySelectorAll(".btns-status");
+    btns_status.forEach(function(boton) {
+    boton.classList.remove("pressed-status");
+    });
 }

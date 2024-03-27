@@ -99,8 +99,8 @@ body {
   border: none;
   display: grid;
   gap: 15px;
-  margin-bottom: 15px;
   margin-top: 10px;
+  margin-bottom: 15px;
   grid-template-columns: 1fr 1fr;
 }
 
@@ -108,33 +108,47 @@ body {
   border: none;
   display: grid;
   gap: 15px;
-  margin-bottom: 15px;
   margin-top: 10px;
+  margin-bottom: 15px;
   grid-template-columns: 1fr;
+}
+
+.btns-status-pressed {
+  border: none;
+  display: grid;
+  gap: 15px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  grid-template-columns: 1fr;
+}
+
+.pressed-status {
+  margin-bottom: 1px;
 }
 
 .btns-status__boton {
   width: 100%;
-  height: 45px;
-  background-color: hsl(220, 100%, 15%);
+  height: 30px;
+  font-size: 0.8em;
   font-family: "Space Mono", monospace;
-  font-size: 1em;
   border: none;
   border-radius: 4px;
   color: hsl(0, 0%, 100%);
-  transition-duration: 1s;
+  background-image: linear-gradient(to left, hsl(220, 100%, 15%), hsl(45, 100%, 50%));
 }
-.btns-status__boton:hover {
-  cursor: pointer;
-  background-color: hsl(219, 60%, 28%);
+
+.pressed {
+  width: 147;
+  font-size: 1em;
+  height: 45px;
 }
 
 .btns__boton {
   width: 147px;
   height: 45px;
+  font-size: 1em;
   background-color: hsl(220, 100%, 15%);
   font-family: "Space Mono", monospace;
-  font-size: 1em;
   border: none;
   border-radius: 4px;
   color: hsl(0, 0%, 100%);
