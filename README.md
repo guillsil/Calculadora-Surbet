@@ -9,8 +9,19 @@ En resumen, esta calculadora Surbet es una herramienta útil para los apostadore
 ## Capturas de pantalla
 
 ![Captura de pantalla 1](images/screenshot_1.png)
-![Captura de pantalla 2](images/screenshot_2.png)
+![Captura de pantalla 2](images/screenshot_3.png)
 
 ## Uso
 
 1. Abre tu navegador y visita `https://calculadora-surbets.netlify.app/`
+
+2. Ingresa las cuotas de las dos apuestas principales y hasta 3 apuestas adicionales.
+3. Haz clic en el botón "Calcular" para obtener las ganancias potenciales.
+4. Se mostrará el resultado de las ganancias potenciales en la parte inferior de la calculadora.
+
+## Herramientas Utilizadas
+- HTML
+- CSS- SASS
+- JavaScript
+- Netlify
+
