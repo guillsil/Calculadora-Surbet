@@ -1,5 +1,5 @@
 document.getElementById("calculate").addEventListener("click", calculate);
-document.getElementById("clear").addEventListener("click", clearInputs);
+document.getElementById("clear").addEventListener("click", resetAll);
 document.getElementById("agregar").addEventListener("click", agregarOdd);
 
 const btnOpen = document.querySelector('#btnOpen');
@@ -105,49 +105,38 @@ function openMobileMenu() {
   
 
 // Añadir eventos input a los campos de entrada de las apuestas y al campo de entrada del monto
-document.getElementById("input1").addEventListener("input", function() {
-    if (document.getElementById("monto").value.trim() !== "" && document.getElementById("input2").value.trim() !== ""){
-        calculate();
-    }
-});
-document.getElementById("input2").addEventListener("input", function() {
-    if (document.getElementById("monto").value.trim() !== "" && document.getElementById("input1").value.trim() !== ""){
-        calculate();
-    }
-});
-document.getElementById("input3").addEventListener("input", function() {
-    if (document.getElementById("monto").value.trim() !== "" && document.getElementById("input1").value.trim() !== "" && document.getElementById("input2").value.trim() !== ""){
-        calculate();
-    }
+for (let i = 1; i <= inputCount; i++) {
+    document.getElementById("input" + i).addEventListener("input", function() {
+        if (areTwoInputsFilled() && isAmountFilled()) {
+            calculate();
+        }
+    });
 }
-);
+
 document.getElementById("monto").addEventListener("input", function() {
-    if (document.getElementById("input1").value.trim() !== "" && document.getElementById("input2").value.trim() !== "") {
+    if (areTwoInputsFilled() && isAmountFilled()) {
         calculate();
     }
 });
+
+function areTwoInputsFilled() {
+    let filledCount = 0;
+    for (let i = 1; i <= inputCount; i++) {
+        if (document.getElementById("input" + i).value.trim() !== "") {
+            filledCount++;
+        }
+    }
+    return filledCount >= 2;
+}
+
+function isAmountFilled() {
+    return document.getElementById("monto").value.trim() !== "";
+}
+
 
   
 
-function clearAddInputs() {
-    var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres");
-    var input = document.querySelector(".inputs-seccion .input-seccion__odd-input__tres");
-    var odd3 = document.querySelector(".resultado__odd3");
-    var valor3 = document.querySelector(".resultado__valor3");
-    var tipOdd3 = document.querySelector(".resultado__tip-odd3");
-    var specialButton = document.getElementById("specialButton");
-    var newspecialButton = document.getElementById("newSpecialButton");
-    var ocultarBotonAdd = document.getElementById("agregar");
 
-    label.classList.add("hidden");
-    input.classList.add("hidden");
-    odd3.classList.add("hidden");
-    valor3.classList.add("hidden");
-    tipOdd3.classList.add("hidden");
-    specialButton.style.display = "block";
-    newspecialButton.style.display = "none";
-    ocultarBotonAdd.style.display = "block";
-}
 
 function calculate2() {
     var odd1 = parseFloat(document.getElementById("input1").value);
@@ -211,13 +200,10 @@ function calculate2() {
     if (isSurebet) {
         specialButton.textContent = "Surebet";
         specialButton.style.backgroundImage = "linear-gradient(90deg, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
-        newSpecialButton.textContent = "Surebet";
-        newSpecialButton.style.backgroundImage = "linear-gradient(90deg, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
+        
     } else {
         specialButton.textContent = "No Surebet";
-        specialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
-        newSpecialButton.textContent = "No Surebet";
-        newSpecialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
+        specialButton.style.backgroundImage = "";
     }
 }
 
@@ -276,36 +262,21 @@ function calculate() {
 }
 
 
-
 function limpiarGenericsInputs() {
-    document.getElementById("input1").value = "";
-    document.getElementById("input2").value = "";
+    for (let i = 1; i <= inputCount; i++) {
+        document.getElementById("input" + i).value = "";
+        document.getElementById("resultado-odd" + i).textContent = "0.00";
+    }
     document.getElementById("monto").value = "";
-    document.getElementById("resultado-odd1").textContent = "0.00";
-    document.getElementById("resultado-odd2").textContent = "0.00";
     document.getElementById("resultado-ganancia").textContent = "0.00";
     document.getElementById("resultado-porcentaje").textContent = "0.00";
-    document.getElementById("specialButton").textContent = "?";
+    document.getElementById("specialButton").textContent = "";
     document.getElementById("specialButton").style.backgroundColor = "";
-    document.getElementById("newSpecialButton").textContent = "?";
+    document.getElementById("newSpecialButton").textContent = "";
     document.getElementById("newSpecialButton").style.backgroundColor = "";
 }
 
-function clearInputs() {
+function resetAll() {
     limpiarGenericsInputs();
     clearAddInputs();
-    document.getElementById("input3").value = "";
-    document.getElementById("resultado-odd3").textContent = "0";
-    var botones = document.querySelectorAll(".btns-status__boton");
-    var header_titulo = document.querySelectorAll(".header-titulo");
-    var btns_status = document.querySelectorAll(".btns-status");
-    botones.forEach(function(boton) {
-        boton.classList.remove("pressed");
-    });
-    btns_status.forEach(function(boton) {
-    boton.classList.remove("pressed-status");
-    });
-    header_titulo.forEach(function(boton) {
-        boton.classList.remove("pressed-titulo");
-    });
 }

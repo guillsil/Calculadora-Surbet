@@ -47,6 +47,11 @@
         @include mixins.input('../images/icon-dollar-two.svg');
         background-color: variables.$Light-grayish-cyan;
     }
+    &__titulo{
+        font-size: 0.8em;
+        color: variables.$Dark-grayish-cyan;
+        margin-bottom: 10px;
+    }
 }
 
 .input-seccion-v4 {

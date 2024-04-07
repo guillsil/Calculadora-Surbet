@@ -198,6 +198,11 @@ a:active:hover {
 .input-seccion__monto-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
+.input-seccion__titulo {
+  font-size: 0.8em;
+  color: hsl(219, 60%, 28%);
+  margin-bottom: 10px;
+}
 
 .input-seccion-v4 {
   display: grid;
