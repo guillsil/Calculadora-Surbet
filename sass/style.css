@@ -277,7 +277,7 @@ a:active:hover {
   border: none;
   border-radius: 4px;
   color: hsl(220, 41%, 84%);
-  background-color: hsl(235.14, 45.68%, 15.88%);
+  background-color: hsl(219, 60%, 28%);
 }
 
 .pressed {
@@ -302,7 +302,7 @@ a:active:hover {
   background-color: hsl(235.14, 45.68%, 15.88%);
 }
 .btns__boton__custom {
-  background-color: hsl(219, 60%, 28%);
+  background-color: hsl(235.14, 45.68%, 15.88%);
   width: 100%;
 }
 .btns__boton__custom__add {

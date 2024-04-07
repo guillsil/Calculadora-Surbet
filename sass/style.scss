@@ -95,7 +95,7 @@
     border: none;
     border-radius: 4px;
     color: variables.$Light-grayish-cyan;
-    background-color: variables.$Very-dark-cyan;
+    background-color: variables.$Dark-grayish-cyan;
 }
 .pressed{
     width: 147;
@@ -109,7 +109,7 @@
     font-size: 1em;
     @include mixins.btns-boton(variables.$Very-dark-cyan);
     &__custom{
-        background-color: variables.$Dark-grayish-cyan;
+        background-color: variables.$Very-dark-cyan;
         width: 100%;
         &__add{
             background-color: variables.$Strong-cyan;
