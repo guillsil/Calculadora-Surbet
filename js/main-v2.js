@@ -1,6 +1,6 @@
 document.getElementById("calculate").addEventListener("click", calculate);
 document.getElementById("clear").addEventListener("click", clearInputs);
-document.getElementById("agregar").addEventListener("click", showAddInput);
+document.getElementById("agregar").addEventListener("click", agregarOdd);
 
 const btnOpen = document.querySelector('#btnOpen');
 const btnClose = document.querySelector('#btnClose');
@@ -8,6 +8,56 @@ const media = window.matchMedia('(width < 40em)');
 const topNavMenu = document.querySelector('.topnav__menu');
 const main = document.querySelector('main');
 const body = document.querySelector('body');
+
+// Contador para el número de inputs agregados
+let inputCount = 4; // Iniciamos en 4 porque ya hay 4 inputs presentes inicialmente
+
+function agregarOdd() {
+    inputCount++;
+
+    const newInput = document.createElement("input");
+    newInput.id = "input" + inputCount;
+    newInput.className = "input-seccion-v4__odd-input";
+    newInput.type = "number";
+    newInput.placeholder = "Odd " + inputCount;
+
+    const container = document.querySelector(".input-seccion-v4");
+    const columns = Math.min(Math.ceil(inputCount / 2), 2); // Máximo 2 columnas
+    const rows = Math.ceil(inputCount / columns); // Calcular el número de filas
+
+    // Establecer el grid-template-columns y grid-template-rows en el contenedor de inputs
+    container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${rows}, auto)`;
+
+    // Insertar el nuevo input en el contenedor de inputs
+    container.appendChild(newInput);
+
+    // Crear un nuevo conjunto de elementos de resultado dentro de un div
+    const newResultDiv = document.createElement("div");
+
+    const resultadoOdd = document.createElement("p");
+    resultadoOdd.textContent = "Apuesta " + inputCount;
+    resultadoOdd.className = "resultado__odd";
+
+    const resultadoValor = document.createElement("p");
+    resultadoValor.textContent = "/recomendacion";
+    resultadoValor.className = "resultado__valor";
+
+    const resultadoTipOdd = document.createElement("p");
+    resultadoTipOdd.id = "resultado-odd" + inputCount;
+    resultadoTipOdd.className = "resultado__tip-odd";
+    resultadoTipOdd.textContent = "0.00";
+
+    // Agregar los elementos de resultado al nuevo div
+    newResultDiv.appendChild(resultadoOdd);
+    newResultDiv.appendChild(resultadoValor);
+
+    // Insertar el nuevo div de resultados en el contenedor de resultados
+    const containerResult = document.querySelector(".resultado");
+    containerResult.appendChild(newResultDiv);
+    containerResult.appendChild(resultadoTipOdd);
+}
+
 
 function openMobileMenu() {
     btnOpen.setAttribute('aria-expanded', 'true');
@@ -77,45 +127,6 @@ document.getElementById("monto").addEventListener("input", function() {
     }
 });
 
-
-function showAddInput() {
-    var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres.hidden");
-    var input = document.querySelector(".inputs-seccion .input-seccion__odd-input__tres.hidden");
-    var odd3 = document.querySelector(".resultado__odd3.hidden");
-    var valor3 = document.querySelector(".resultado__valor3.hidden");
-    var tipOdd3 = document.querySelector(".resultado__tip-odd3.hidden");
-    var specialButton = document.getElementById("specialButton");
-    var newspecialButton = document.getElementById("newSpecialButton");
-    var ocultarBotonAdd = document.getElementById("agregar");
-  
-    label.classList.remove("hidden");
-    input.classList.remove("hidden");
-    odd3.classList.remove("hidden");
-    valor3.classList.remove("hidden");
-    tipOdd3.classList.remove("hidden");
-    specialButton.style.display = "none";
-    newspecialButton.style.display = "block";
-    ocultarBotonAdd.style.display = "none"
-    var botones = document.querySelectorAll(".btns-status__boton");
-    var header_titulo = document.querySelectorAll(".header-titulo");
-    var btns_status = document.querySelectorAll(".btns-status");
-    botones.forEach(function(boton) {
-        boton.classList.add("pressed");
-    });
-    btns_status.forEach(function(boton) {
-        boton.classList.add("pressed-status");
-    });
-    header_titulo.forEach(function(boton) {
-        boton.classList.add("pressed-titulo");
-    });
-
-    limpiarGenericsInputs();
-  
-    document.getElementById("input3").value = "";
-    document.getElementById("resultado-odd3").textContent = "0.00";
-  
-    
-}
   
 
 function clearAddInputs() {
@@ -138,7 +149,7 @@ function clearAddInputs() {
     ocultarBotonAdd.style.display = "block";
 }
 
-function calculate() {
+function calculate2() {
     var odd1 = parseFloat(document.getElementById("input1").value);
     var odd2 = parseFloat(document.getElementById("input2").value);
     var odd3 = parseFloat(document.getElementById("input3").value); 
@@ -202,6 +213,60 @@ function calculate() {
         specialButton.style.backgroundImage = "linear-gradient(90deg, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
         newSpecialButton.textContent = "Surebet";
         newSpecialButton.style.backgroundImage = "linear-gradient(90deg, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
+    } else {
+        specialButton.textContent = "No Surebet";
+        specialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
+        newSpecialButton.textContent = "No Surebet";
+        newSpecialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";
+    }
+}
+
+function calculate() {
+    var stake = parseFloat(document.getElementById("monto").value);
+    var totalWinning = 0;
+    var result = 0;
+    var totalBets = 0;
+    var profitPercentage = 0;
+
+    for (let i = 1; i <= inputCount; i++) {
+        var odd = parseFloat(document.getElementById("input" + i).value);
+        totalBets += odd ? 1 : 0;
+        result += odd ? 1 / odd : 0;
+
+        // Actualizar los elementos HTML con los resultados de cada apuesta
+        document.getElementById("resultado-odd" + i).textContent = (odd ? (stake / odd).toLocaleString('es-ES', { minimumFractionDigits: 2 }) : "0.00");
+    }
+
+    var isSurebet = result < 1;
+
+    if (totalBets > 0) {
+        for (let i = 1; i <= inputCount; i++) {
+            var odd = parseFloat(document.getElementById("input" + i).value);
+            var normalOdd = odd ? (1 / odd) / result : 0;
+            var howMuchbet = odd ? stake * normalOdd : 0;
+            var winning = odd ? howMuchbet * odd - stake : 0;
+
+            totalWinning += winning;
+        }
+
+        profitPercentage = (totalWinning / (stake * totalBets)) * 100;
+    }
+
+    // Redondeo
+    totalWinning = Math.round(totalWinning);
+    profitPercentage = Math.round(profitPercentage);
+
+    // Actualización de los elementos HTML con los resultados totales
+    document.getElementById("resultado-ganancia").textContent = totalWinning.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+    document.getElementById("resultado-porcentaje").textContent = profitPercentage.toLocaleString('es-ES', { minimumFractionDigits: 2 });
+
+    // Mostrar si es surebet o no
+    var specialButton = document.getElementById("specialButton");
+    if (isSurebet) {
+        specialButton.textContent = "Surebet";
+        specialButton.style.backgroundImage = "hsl(20.62, 100%, 62.35%)";
+        newSpecialButton.textContent = "Surebet";
+        newSpecialButton.style.backgroundImage = "hsl(20.62, 100%, 62.35%)";
     } else {
         specialButton.textContent = "No Surebet";
         specialButton.style.backgroundImage = "linear-gradient(to right, hsl(45, 100%, 50%), hsl(220, 100%, 15%))";

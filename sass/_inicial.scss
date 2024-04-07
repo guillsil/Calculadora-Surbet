@@ -4,10 +4,49 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    ::before,
+    ::after {
+    box-sizing: border-box;
+    }
 }
 
 body{
     font-size: 24px;
+    color: variables.$Very-dark-cyan;
     background-color: variables.$Light-grayish-cyan;
     font-family: variables.$font;
+
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+
+    &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+  }
+}
+
+nav {
+  display: none;
+}
+
+a,
+a:visited,
+a:active {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: variables.$Very-dark-cyan;
+
+  &:hover {
+    text-decoration: underline 2px;
+  }
+}
+
+.wrapper {
+  width: min(100% - 3rem, 56.25rem);
+  margin-inline: auto;
 }
