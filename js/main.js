@@ -140,15 +140,14 @@ function calculate() {
     
     var result = 0;
     var totalBets = 0;
+    var calculatedResults = [];
+
     
 
     for (let i = 1; i <= inputCount; i++) {
         var odd = parseFloat(document.getElementById("input" + i).value);
         totalBets += odd ? 1 : 0;
         result += odd ? 1 / odd : 0;
-
-        // Actualizar los elementos HTML con los resultados de cada apuesta
-        document.getElementById("resultado-odd" + i).textContent = (odd ? (stake / odd).toLocaleString('es-ES', { minimumFractionDigits: 1 }) : "0.00");
     }
 
     var isSurebet = result < 1;
@@ -158,14 +157,16 @@ function calculate() {
             var odd = parseFloat(document.getElementById("input" + i).value);
             var normalOdd = odd ? (1 / odd) / result : 0;
             var howMuchbet = odd ? stake * normalOdd : 0;
+            // Actualizar los elementos HTML con los resultados de cada apuesta
+            howMuchbet = Math.round(howMuchbet);
+            document.getElementById("resultado-odd" + i).textContent = (odd ? howMuchbet.toLocaleString('es-ES', { minimumFractionDigits: 0 }) : "0.0");
             var winning = odd ? howMuchbet * odd - stake : 0;
-
             totalWinning += winning;
         }
 
         profitPercentage = (totalWinning / (stake * totalBets)) * 100;
     }
-
+    totalWinning = totalWinning/totalBets;
     // Redondeo
     totalWinning = Math.round(totalWinning);
     profitPercentage = Math.round(profitPercentage);
