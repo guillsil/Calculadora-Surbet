@@ -84,9 +84,9 @@ function openMobileMenu() {
 function showAddInput() {
     var label = document.querySelector(".inputs-seccion .input-seccion__odd-label__tres.hidden");
     var input = document.querySelector(".inputs-seccion .input-seccion__odd-input__tres.hidden");
-    var odd3 = document.querySelector(".resultado__odd3.hidden");
-    var valor3 = document.querySelector(".resultado__valor3.hidden");
-    var tipOdd3 = document.querySelector(".resultado__tip-odd3.hidden");
+    var odd3 = document.querySelector(".resultado__odd.hidden");
+    var valor3 = document.querySelector(".resultado__valor.hidden");
+    var tipOdd3 = document.querySelector(".resultado__tip-odd.hidden");
     var specialButton = document.getElementById("specialButton");
     var newspecialButton = document.getElementById("newSpecialButton");
     var ocultarBotonAdd = document.getElementById("agregar");
