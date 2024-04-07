@@ -58,7 +58,7 @@ function openMobileMenu() {
   });
 
 
-  function agregarOdd() {
+function agregarOdd() {
     inputCount++;
 
     const newInput = document.createElement("input");
@@ -82,11 +82,11 @@ function openMobileMenu() {
     const newResultDiv = document.createElement("div");
 
     const resultadoOdd = document.createElement("p");
-    resultadoOdd.textContent = "Apuesta " + inputCount;
+    resultadoOdd.textContent = "Odds " + inputCount;
     resultadoOdd.className = "resultado__odd";
 
     const resultadoValor = document.createElement("p");
-    resultadoValor.textContent = "/recomendacion";
+    resultadoValor.textContent = "/suggestion";
     resultadoValor.className = "resultado__valor";
 
     const resultadoTipOdd = document.createElement("p");
