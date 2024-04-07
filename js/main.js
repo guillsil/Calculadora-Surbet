@@ -2,107 +2,9 @@ document.getElementById("calculate").addEventListener("click", calculate);
 document.getElementById("clear").addEventListener("click", resetAll);
 document.getElementById("agregar").addEventListener("click", agregarOdd);
 
-const btnOpen = document.querySelector('#btnOpen');
-const btnClose = document.querySelector('#btnClose');
-const media = window.matchMedia('(width < 40em)');
-const topNavMenu = document.querySelector('.topnav__menu');
-const main = document.querySelector('main');
-const body = document.querySelector('body');
 
 // Contador para el número de inputs agregados
 let inputCount = 4; // Iniciamos en 4 porque ya hay 4 inputs presentes inicialmente
-
-
-function openMobileMenu() {
-    btnOpen.setAttribute('aria-expanded', 'true');
-    topNavMenu.removeAttribute('inert');
-    topNavMenu.removeAttribute('style');
-    main.setAttribute('inert', '');
-    bodyScrollLockUpgrade.disableBodyScroll(body);
-    btnClose.focus();
-  }
-  
-  function closeMobileMenu() {
-    btnOpen.setAttribute('aria-expanded', 'false');
-    topNavMenu.setAttribute('inert', '');
-    main.removeAttribute('inert');
-    bodyScrollLockUpgrade.enableBodyScroll(body);
-    btnOpen.focus();
-  
-    setTimeout(() => {
-      topNavMenu.style.transition = 'none';
-    }, 500);
-  }
-  
-  function setupTopNav(e) {
-    if (e.matches) {
-      // is mobile
-      console.log('is mobile');
-      topNavMenu.setAttribute('inert', '');
-      topNavMenu.style.transition = 'none';
-    } else {
-      // is tablet/desktop
-      console.log('is desktop');
-      closeMobileMenu();
-      topNavMenu.removeAttribute('inert');
-    }
-  }
-  
-  setupTopNav(media);
-  
-  btnOpen.addEventListener('click', openMobileMenu);
-  btnClose.addEventListener('click', closeMobileMenu);
-  
-  media.addEventListener('change', function (e) {
-    setupTopNav(e);
-  });
-
-
-function agregarOdd() {
-    inputCount++;
-
-    const newInput = document.createElement("input");
-    newInput.id = "input" + inputCount;
-    newInput.className = "input-seccion-v4__odd-input";
-    newInput.type = "number";
-    newInput.placeholder = "Odd " + inputCount;
-
-    const container = document.querySelector(".input-seccion-v4");
-    const columns = Math.min(Math.ceil(inputCount / 2), 2); // Máximo 2 columnas
-    const rows = Math.ceil(inputCount / columns); // Calcular el número de filas
-
-    // Establecer el grid-template-columns y grid-template-rows en el contenedor de inputs
-    container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-    container.style.gridTemplateRows = `repeat(${rows}, auto)`;
-
-    // Insertar el nuevo input en el contenedor de inputs
-    container.appendChild(newInput);
-
-    // Crear un nuevo conjunto de elementos de resultado dentro de un div
-    const newResultDiv = document.createElement("div");
-
-    const resultadoOdd = document.createElement("p");
-    resultadoOdd.textContent = "Odds " + inputCount;
-    resultadoOdd.className = "resultado__odd";
-
-    const resultadoValor = document.createElement("p");
-    resultadoValor.textContent = "/suggestion";
-    resultadoValor.className = "resultado__valor";
-
-    const resultadoTipOdd = document.createElement("p");
-    resultadoTipOdd.id = "resultado-odd" + inputCount;
-    resultadoTipOdd.className = "resultado__tip-odd";
-    resultadoTipOdd.textContent = "0.00";
-
-    // Agregar los elementos de resultado al nuevo div
-    newResultDiv.appendChild(resultadoOdd);
-    newResultDiv.appendChild(resultadoValor);
-
-    // Insertar el nuevo div de resultados en el contenedor de resultados
-    const containerResult = document.querySelector(".resultado");
-    containerResult.appendChild(newResultDiv);
-    containerResult.appendChild(resultadoTipOdd);
-}
 
 // Añadir eventos input a los campos de entrada de las apuestas y al campo de entrada del monto
 for (let i = 1; i <= inputCount; i++) {
@@ -132,6 +34,54 @@ function areTwoInputsFilled() {
 function isAmountFilled() {
     return document.getElementById("monto").value.trim() !== "";
 }
+
+function agregarOdd() {
+    inputCount++;
+
+    const newInput = document.createElement("input");
+    newInput.id = "input" + inputCount;
+    newInput.className = "input-seccion-v4__odd-input";
+    newInput.type = "number";
+    newInput.placeholder = "Odd " + inputCount;
+
+    const container = document.querySelector(".input-seccion-v4");
+    const columns = Math.min(Math.ceil(inputCount / 2), 2); // Máximo 2 columnas
+    const rows = Math.ceil(inputCount / columns); // Calcular el número de filas
+
+    // Establecer el grid-template-columns y grid-template-rows en el contenedor de inputs
+    container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+    container.style.gridTemplateRows = `repeat(${rows}, auto)`;
+
+    // Insertar el nuevo input en el contenedor de inputs
+    container.appendChild(newInput);
+
+    // Crear un nuevo conjunto de elementos de resultado dentro de un div
+    const newResultDiv = document.createElement("div");
+
+    const resultadoOdd = document.createElement("p");
+    resultadoOdd.textContent = "Odds " + inputCount;
+    resultadoOdd.className = "resultado__odd";
+
+    const resultadoValor = document.createElement("p");
+    resultadoValor.textContent = "/suggest";
+    resultadoValor.className = "resultado__valor";
+
+    const resultadoTipOdd = document.createElement("p");
+    resultadoTipOdd.id = "resultado-odd" + inputCount;
+    resultadoTipOdd.className = "resultado__tip-odd";
+    resultadoTipOdd.textContent = "0.00";
+
+    // Agregar los elementos de resultado al nuevo div
+    newResultDiv.appendChild(resultadoOdd);
+    newResultDiv.appendChild(resultadoValor);
+
+    // Insertar el nuevo div de resultados en el contenedor de resultados
+    const containerResult = document.querySelector(".resultado");
+    containerResult.appendChild(newResultDiv);
+    containerResult.appendChild(resultadoTipOdd);
+}
+
+
 
 function calculate() {
     var stake = parseFloat(document.getElementById("monto").value);
