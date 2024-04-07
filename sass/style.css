@@ -51,11 +51,10 @@ a:active:hover {
 }
 
 .topnav {
-  display: grid;
-  grid-template-columns: 1fr auto;
+  display: flex;
   justify-content: space-around; /* Coloca el título al principio y la navegación al final */
   align-items: center;
-  gap: 10rem;
+  border-right: 0.5rem;
 }
 .topnav button {
   background: none;
@@ -106,6 +105,11 @@ a:active:hover {
   align-items: center;
   margin: 0;
   padding: 0;
+}
+@media (width < 40em) {
+  .topnav__links {
+    flex-direction: column;
+  }
 }
 .topnav__item {
   list-style-type: none;
