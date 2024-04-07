@@ -63,7 +63,7 @@ function agregarOdd() {
     resultadoOdd.className = "resultado__odd";
 
     const resultadoValor = document.createElement("p");
-    resultadoValor.textContent = "/suggest";
+    resultadoValor.textContent = "/suggestion";
     resultadoValor.className = "resultado__valor";
 
     const resultadoTipOdd = document.createElement("p");
@@ -129,10 +129,10 @@ function calculate() {
     var specialButton = document.getElementById("specialButton");
     if (isSurebet) {
         specialButton.textContent = "Surebet";
-        specialButton.style.backgroundImage = "hsl(20.62, 100%, 62.35%)";
+        specialButton.style.backgroundColor = "hsl(40.09, 100%, 53.92%)";
     } else {
         specialButton.textContent = "No Surebet";
-        specialButton.style.backgroundImage = "hsl(0, 100%, 50%)";
+        specialButton.style.backgroundColor = "hsl(220, 89.36%, 18.43%)";
     }
 }
 
@@ -147,8 +147,6 @@ function limpiarGenericsInputs() {
     document.getElementById("resultado-porcentaje").textContent = "0.00";
     document.getElementById("specialButton").textContent = "";
     document.getElementById("specialButton").style.backgroundColor = "";
-    document.getElementById("newSpecialButton").textContent = "";
-    document.getElementById("newSpecialButton").style.backgroundColor = "";
 }
 
 function resetAll() {
