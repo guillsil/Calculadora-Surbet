@@ -197,10 +197,18 @@
     text-align: center; 
     margin: 35px 0;
 }
+.attribution2{
+    font-size: 14px;
+    text-align: center;
+    margin: 40px 0;
+}
 
 
 .attribution a { 
     color: hsl(228, 45%, 44%); 
+}
+.attribution2 a{
+    color: hsl(228, 45%, 44%);
 }
 
 ///////////////////////////            Desktop        ////////////////////////
@@ -234,6 +242,9 @@
         width: 100%;
     }
     .attribution{
+        margin: 100px 0 100px;
+    }
+    .attribution2{
         margin: 100px 0 100px;
     }
     .resultado{
