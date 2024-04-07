@@ -42,7 +42,7 @@ function agregarOdd() {
     newInput.id = "input" + inputCount;
     newInput.className = "input-seccion-v4__odd-input";
     newInput.type = "number";
-    newInput.placeholder = "Odd " + inputCount;
+    newInput.placeholder = "Odd " + inputCount + " ";
 
     const container = document.querySelector(".input-seccion-v4");
     const columns = Math.min(Math.ceil(inputCount / 2), 2); // Máximo 2 columnas
