@@ -12,7 +12,53 @@ const body = document.querySelector('body');
 // Contador para el número de inputs agregados
 let inputCount = 4; // Iniciamos en 4 porque ya hay 4 inputs presentes inicialmente
 
-function agregarOdd() {
+
+function openMobileMenu() {
+    btnOpen.setAttribute('aria-expanded', 'true');
+    topNavMenu.removeAttribute('inert');
+    topNavMenu.removeAttribute('style');
+    main.setAttribute('inert', '');
+    bodyScrollLockUpgrade.disableBodyScroll(body);
+    btnClose.focus();
+  }
+  
+  function closeMobileMenu() {
+    btnOpen.setAttribute('aria-expanded', 'false');
+    topNavMenu.setAttribute('inert', '');
+    main.removeAttribute('inert');
+    bodyScrollLockUpgrade.enableBodyScroll(body);
+    btnOpen.focus();
+  
+    setTimeout(() => {
+      topNavMenu.style.transition = 'none';
+    }, 500);
+  }
+  
+  function setupTopNav(e) {
+    if (e.matches) {
+      // is mobile
+      console.log('is mobile');
+      topNavMenu.setAttribute('inert', '');
+      topNavMenu.style.transition = 'none';
+    } else {
+      // is tablet/desktop
+      console.log('is desktop');
+      closeMobileMenu();
+      topNavMenu.removeAttribute('inert');
+    }
+  }
+  
+  setupTopNav(media);
+  
+  btnOpen.addEventListener('click', openMobileMenu);
+  btnClose.addEventListener('click', closeMobileMenu);
+  
+  media.addEventListener('change', function (e) {
+    setupTopNav(e);
+  });
+
+
+  function agregarOdd() {
     inputCount++;
 
     const newInput = document.createElement("input");
@@ -58,52 +104,6 @@ function agregarOdd() {
     containerResult.appendChild(resultadoTipOdd);
 }
 
-
-function openMobileMenu() {
-    btnOpen.setAttribute('aria-expanded', 'true');
-    topNavMenu.removeAttribute('inert');
-    topNavMenu.removeAttribute('style');
-    main.setAttribute('inert', '');
-    bodyScrollLockUpgrade.disableBodyScroll(body);
-    btnClose.focus();
-  }
-  
-  function closeMobileMenu() {
-    btnOpen.setAttribute('aria-expanded', 'false');
-    topNavMenu.setAttribute('inert', '');
-    main.removeAttribute('inert');
-    bodyScrollLockUpgrade.enableBodyScroll(body);
-    btnOpen.focus();
-  
-    setTimeout(() => {
-      topNavMenu.style.transition = 'none';
-    }, 500);
-  }
-  
-  function setupTopNav(e) {
-    if (e.matches) {
-      // is mobile
-      console.log('is mobile');
-      topNavMenu.setAttribute('inert', '');
-      topNavMenu.style.transition = 'none';
-    } else {
-      // is tablet/desktop
-      console.log('is desktop');
-      closeMobileMenu();
-      topNavMenu.removeAttribute('inert');
-    }
-  }
-  
-  setupTopNav(media);
-  
-  btnOpen.addEventListener('click', openMobileMenu);
-  btnClose.addEventListener('click', closeMobileMenu);
-  
-  media.addEventListener('change', function (e) {
-    setupTopNav(e);
-  });
-  
-
 // Añadir eventos input a los campos de entrada de las apuestas y al campo de entrada del monto
 for (let i = 1; i <= inputCount; i++) {
     document.getElementById("input" + i).addEventListener("input", function() {
@@ -136,9 +136,11 @@ function isAmountFilled() {
 function calculate() {
     var stake = parseFloat(document.getElementById("monto").value);
     var totalWinning = 0;
+    var profitPercentage = 0;
+    
     var result = 0;
     var totalBets = 0;
-    var profitPercentage = 0;
+    
 
     for (let i = 1; i <= inputCount; i++) {
         var odd = parseFloat(document.getElementById("input" + i).value);
@@ -146,7 +148,7 @@ function calculate() {
         result += odd ? 1 / odd : 0;
 
         // Actualizar los elementos HTML con los resultados de cada apuesta
-        document.getElementById("resultado-odd" + i).textContent = (odd ? (stake / odd).toLocaleString('es-ES', { minimumFractionDigits: 2 }) : "0.00");
+        document.getElementById("resultado-odd" + i).textContent = (odd ? (stake / odd).toLocaleString('es-ES', { minimumFractionDigits: 1 }) : "0.00");
     }
 
     var isSurebet = result < 1;
