@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap");
 * {
   margin: 0;
@@ -50,10 +51,11 @@ a:active:hover {
 }
 
 .topnav {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-content: space-around; /* Coloca el título al principio y la navegación al final */
   align-items: center;
-  border-right: 1rem;
+  gap: 10rem;
 }
 .topnav button {
   background: none;
@@ -104,11 +106,6 @@ a:active:hover {
   align-items: center;
   margin: 0;
   padding: 0;
-}
-@media (width < 40em) {
-  .topnav__links {
-    flex-direction: column;
-  }
 }
 .topnav__item {
   list-style-type: none;
