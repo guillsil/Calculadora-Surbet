@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/icono.ico">
   <link rel="stylesheet" href="sass/style.css">
-  <title>G.Sure bet Calculator</title>
+  <title>G.Sure bet Calculator v3.0</title>
 </head>
 
-<body>
+<body class="body">
   <header class="topnav wrapper">
-    <h1 class="header-titulo">G.Sure <br>Bet</h1>
-    <nav>
+    <h1 class="header-titulo"><a href="/index.html">G.Sure <br>Bet+</a></h1>
+    <nav class="nav-2">
       <span id="nav-label" href="v2.html" hidden></span>
       <button
         id="btnOpen"
@@ -38,23 +38,26 @@
 
   <section class="calculadora-container">
     <div class="inputs-seccion">
-      <label class="input-seccion__odd-label">Apuesta 1</label>
-      <input id="input1" class="input-seccion__odd-input" type="number" placeholder="Ingrese una apuesta">
+      <label class="input-seccion__monto-label">enter bets</label>
+      <div class="input-seccion-v4">
+        <label class="input-seccion-v4__odd-label"></label>
+        <input id="input1" class="input-seccion-v4__odd-input" type="number" placeholder="Odds 1">
 
-      <label class="input-seccion__odd-label">Apuesta 2</label>
-      <input id="input2" class="input-seccion__odd-input" type="number" placeholder="Ingrese otra apuesta">
+        <label class="input-seccion-v4__odd-label"></label>
+        <input id="input2" class="input-seccion-v4__odd-input" type="number" placeholder="Odds 2">
 
-      <label class="input-seccion__odd-label input-seccion__odd-label__tres hidden">Apuesta 3</label>
-      <input id="input3" class="input-seccion__odd-input input-seccion__odd-input__tres hidden" type="number" placeholder="Ingrese otra apuesta">
+        <label class="input-seccion-v4__odd-label"></label>
+        <input id="input3" class="input-seccion-v4__odd-input" type="number" placeholder="Odds 3">
+        <label class="input-seccion-v4__odd-label"></label>
+        <input id="input4" class="input-seccion-v4__odd-input" type="number" placeholder="Odds 4">
+      </div>
 
-
-      <label class="input-seccion__monto-label">Monto</label>
-      <input id="monto" class="input-seccion__monto-input" type="number" placeholder="Ingrese el monto">
+      <label class="input-seccion__monto-label">Stake</label>
+      <input id="monto" class="input-seccion__monto-input" type="number" placeholder="  ">
 
       <fieldset class="btns">
-        <button class="btns__boton btns__boton__custom" id="calculate">Calcular</button>
-        <button class="btns__boton btns__boton__custom btns__boton__custom__add" id="agregar">Agregar</button>
-        <button class="btns-status__boton hidden" id="newSpecialButton">?</button>
+        <button class="btns__boton btns__boton__custom" id="calculate">Calculate</button>
+        <button class="btns__boton btns__boton__custom btns__boton__custom__add" id="agregar">Add</button>
       </fieldset>
       <fieldset class="btns-status">
         <button class="btns-status__boton" id="specialButton"></button>
@@ -64,46 +67,52 @@
     <div class="result-seccion" id="result betting">
       <div class="resultado">
         <div>
-          <p class="resultado__odd">Apuesta 1</p>
-          <p class="resultado__valor">/recomendacion</p>
+          <p class="resultado__odd">Odd 1</p>
+          <p class="resultado__valor">/suggestion</p>
         </div>
 
         <p class="resultado__tip-odd" id="resultado-odd1">0.00</p>
 
         <div>
-          <p class="resultado__odd">Apuesta 2</p>
-          <p class="resultado__valor">/recomendacion</p>
+          <p class="resultado__odd">Odd 2</p>
+          <p class="resultado__valor">/suggestion</p>
         </div>
 
         <p class="resultado__tip-odd" id="resultado-odd2">0.00</p>
 
         <div>
-          <p class="resultado__odd hidden">Apuesta 3</p>
-          <p class="resultado__valor hidden">/recomendacion</p>
+          <p class="resultado__odd">Odd 3</p>
+          <p class="resultado__valor">/suggestion</p>
         </div>
 
-        <p class="resultado__tip-odd hidden" id="resultado-odd3">0.00</p>
+        <p class="resultado__tip-odd" id="resultado-odd3">0.00</p>
 
-        <div class="resultado__result-abajo">
-          <p class="resultado__result-abajo__porcentaje" id="resultado-porcentaje">0.00</p>
-
-          <p class="resultado__result-abajo__ganancia" id="resultado-ganancia">0.00</p>
+        <div>
+            <p class="resultado__odd">Odd 4</p>
+            <p class="resultado__valor">/suggestion</p>
         </div>
+        
+        <p class="resultado__tip-odd" id="resultado-odd4">0.00</p>
 
 
       </div>
-      <button class="result-seccion__reset" id="clear">Reiniciar</button>
+      <div class="resultado__result-abajo">
+        <p class="resultado__result-abajo__porcentaje" id="resultado-porcentaje">0.00</p>
+
+        <p class="resultado__result-abajo__ganancia" id="resultado-ganancia">0.00</p>
+      </div>
+      <button class="result-seccion__reset" id="clear">Reset</button>
     </div>
 
   </section>
 
 
 
-  <div class="attribution2">
-    Creado por <a href="https://github.com/guillsil" target="_blank">GuillSil</a>.
+  <div class="attribution">
+    powered by <a href="https://github.com/guillsil" target="_blank">GuillSil</a>.
   </div>
 
-  <script src="/js/main-v2.js"></script>
+  <script src="/js/main.js"></script>
 </body>
 
 </html>
