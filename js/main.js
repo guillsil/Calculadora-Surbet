@@ -140,31 +140,29 @@ function calculate() {
 
 function resetAll() {
     for (let i = 5; i <= inputCount; i++) {
-        // Eliminar el input agregado
         const inputToRemove = document.getElementById("input" + i);
         inputToRemove.parentNode.removeChild(inputToRemove);
 
-        // Eliminar el div de resultados agregado
         const resultDivToRemove = document.querySelector(".result-" + i);
         resultDivToRemove.parentNode.removeChild(resultDivToRemove);
 
-
-        // Eliminar el elemento p de resultado agregado
         const resultadoOddToRemove = document.getElementById("resultado-odd"+i);
         resultadoOddToRemove.parentNode.removeChild(resultadoOddToRemove);
     }
+    for (let i = 1; i <= inputCount; i++) {
+        document.getElementById("input" + i).value = "";
+        document.getElementById("resultado-odd" + i).textContent = "0.00";
+    }
 
-    // Restaurar el contador de inputs
     inputCount = 4;
 
-    // Restaurar el valor del monto
-    document.getElementById("monto").value = "";
+    const montoInput = document.getElementById("monto");
+    const montoValue = montoInput.value;
+    montoInput.value = "";
 
-    // Restaurar los resultados totales
     document.getElementById("resultado-ganancia").textContent = "0.00";
     document.getElementById("resultado-porcentaje").textContent = "0.00";
 
-    // Restaurar el botón especial
     document.getElementById("specialButton").textContent = "";
     document.getElementById("specialButton").style.backgroundColor = "";
 }
