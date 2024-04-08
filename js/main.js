@@ -57,6 +57,7 @@ function agregarOdd() {
 
     // Crear un nuevo conjunto de elementos de resultado dentro de un div
     const newResultDiv = document.createElement("div");
+    newResultDiv.className = "result-" + inputCount;
 
     const resultadoOdd = document.createElement("p");
     resultadoOdd.textContent = "Odds " + inputCount;
@@ -67,8 +68,8 @@ function agregarOdd() {
     resultadoValor.className = "resultado__valor";
 
     const resultadoTipOdd = document.createElement("p");
-    resultadoTipOdd.id = "resultado-odd" + inputCount;
     resultadoTipOdd.className = "resultado__tip-odd";
+    resultadoTipOdd.id = "resultado-odd" + inputCount;
     resultadoTipOdd.textContent = "0.00";
 
     // Agregar los elementos de resultado al nuevo div
@@ -137,19 +138,35 @@ function calculate() {
 }
 
 
-function limpiarGenericsInputs() {
-    for (let i = 1; i <= inputCount; i++) {
-        document.getElementById("input" + i).value = "";
-        document.getElementById("resultado-odd" + i).textContent = "0.00";
+function resetAll() {
+    for (let i = 5; i <= inputCount; i++) {
+        // Eliminar el input agregado
+        const inputToRemove = document.getElementById("input" + i);
+        inputToRemove.parentNode.removeChild(inputToRemove);
+
+        // Eliminar el div de resultados agregado
+        const resultDivToRemove = document.querySelector(".result-" + i);
+        resultDivToRemove.parentNode.removeChild(resultDivToRemove);
+
+
+        // Eliminar el elemento p de resultado agregado
+        const resultadoOddToRemove = document.getElementById("resultado-odd"+i);
+        resultadoOddToRemove.parentNode.removeChild(resultadoOddToRemove);
     }
+
+    // Restaurar el contador de inputs
+    inputCount = 4;
+
+    // Restaurar el valor del monto
     document.getElementById("monto").value = "";
+
+    // Restaurar los resultados totales
     document.getElementById("resultado-ganancia").textContent = "0.00";
     document.getElementById("resultado-porcentaje").textContent = "0.00";
+
+    // Restaurar el botón especial
     document.getElementById("specialButton").textContent = "";
     document.getElementById("specialButton").style.backgroundColor = "";
 }
 
-function resetAll() {
-    limpiarGenericsInputs();
-    clearAddInputs();
-}
+
