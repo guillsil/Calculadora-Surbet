@@ -90,20 +90,17 @@ function calculate() {
     var profitPercentage = 0;
     
     var result = 0;
-    var totalBets = 0;
-    var calculatedResults = [];
-
-    
+ 
 
     for (let i = 1; i <= inputCount; i++) {
         var odd = parseFloat(document.getElementById("input" + i).value);
-        totalBets += odd ? 1 : 0;
+        inputCount += odd ? 1 : 0;
         result += odd ? 1 / odd : 0;
     }
 
     var isSurebet = result < 1;
 
-    if (totalBets > 0) {
+    if (inputCount > 0) {
         for (let i = 1; i <= inputCount; i++) {
             var odd = parseFloat(document.getElementById("input" + i).value);
             var normalOdd = odd ? (1 / odd) / result : 0;
@@ -115,9 +112,9 @@ function calculate() {
             totalWinning += winning;
         }
 
-        profitPercentage = (totalWinning / (stake * totalBets)) * 100;
+        profitPercentage = (totalWinning / (stake * inputCount)) * 100;
     }
-    totalWinning = totalWinning/totalBets;
+    totalWinning = totalWinning/inputCount;
     // Redondeo
     totalWinning = Math.round(totalWinning);
     profitPercentage = Math.round(profitPercentage);
@@ -139,6 +136,10 @@ function calculate() {
 
 
 function resetAll() {
+    for (let i = 1; i <= inputCount; i++) {
+        document.getElementById("input" + i).value = "";
+        document.getElementById("resultado-odd" + i).textContent = "0.00";
+    }
     for (let i = 5; i <= inputCount; i++) {
         const inputToRemove = document.getElementById("input" + i);
         inputToRemove.parentNode.removeChild(inputToRemove);
@@ -149,11 +150,7 @@ function resetAll() {
         const resultadoOddToRemove = document.getElementById("resultado-odd"+i);
         resultadoOddToRemove.parentNode.removeChild(resultadoOddToRemove);
     }
-    for (let i = 1; i <= inputCount; i++) {
-        document.getElementById("input" + i).value = "";
-        document.getElementById("resultado-odd" + i).textContent = "0.00";
-    }
-
+    
     inputCount = 4;
 
     const montoInput = document.getElementById("monto");
