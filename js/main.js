@@ -94,7 +94,6 @@ function calculate() {
 
     for (let i = 1; i <= inputCount; i++) {
         var odd = parseFloat(document.getElementById("input" + i).value);
-        inputCount += odd ? 1 : 0;
         result += odd ? 1 / odd : 0;
     }
 
