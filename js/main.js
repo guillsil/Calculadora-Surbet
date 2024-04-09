@@ -45,17 +45,14 @@ function agregarOdd() {
     newInput.placeholder = "Odd " + inputCount + " ";
 
     const container = document.querySelector(".input-seccion-v4");
-    const columns = Math.min(Math.ceil(inputCount / 2), 2); // Máximo 2 columnas
-    const rows = Math.ceil(inputCount / columns); // Calcular el número de filas
+    const columns = Math.min(Math.ceil(inputCount / 2), 2);
+    const rows = Math.ceil(inputCount / columns);
 
-    // Establecer el grid-template-columns y grid-template-rows en el contenedor de inputs
     container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${rows}, auto)`;
 
-    // Insertar el nuevo input en el contenedor de inputs
     container.appendChild(newInput);
 
-    // Crear un nuevo conjunto de elementos de resultado dentro de un div
     const newResultDiv = document.createElement("div");
     newResultDiv.className = "result-" + inputCount;
 
@@ -72,11 +69,9 @@ function agregarOdd() {
     resultadoTipOdd.id = "resultado-odd" + inputCount;
     resultadoTipOdd.textContent = "0.00";
 
-    // Agregar los elementos de resultado al nuevo div
     newResultDiv.appendChild(resultadoOdd);
     newResultDiv.appendChild(resultadoValor);
 
-    // Insertar el nuevo div de resultados en el contenedor de resultados
     const containerResult = document.querySelector(".resultado");
     containerResult.appendChild(newResultDiv);
     containerResult.appendChild(resultadoTipOdd);
@@ -90,7 +85,6 @@ function calculate() {
     var profitPercentage = 0;
     
     var result = 0;
- 
 
     for (let i = 1; i <= inputCount; i++) {
         var odd = parseFloat(document.getElementById("input" + i).value);
@@ -98,13 +92,11 @@ function calculate() {
     }
 
     var isSurebet = result < 1;
-
     if (inputCount > 0) {
         for (let i = 1; i <= inputCount; i++) {
             var odd = parseFloat(document.getElementById("input" + i).value);
             var normalOdd = odd ? (1 / odd) / result : 0;
             var howMuchbet = odd ? stake * normalOdd : 0;
-            // Actualizar los elementos HTML con los resultados de cada apuesta
             howMuchbet = Math.round(howMuchbet);
             document.getElementById("resultado-odd" + i).textContent = (odd ? howMuchbet.toLocaleString('es-ES', { minimumFractionDigits: 0 }) : "0.0");
             var winning = odd ? howMuchbet * odd - stake : 0;
@@ -114,15 +106,11 @@ function calculate() {
         profitPercentage = (totalWinning / (stake * inputCount)) * 100;
     }
     totalWinning = totalWinning/inputCount;
-    // Redondeo
     totalWinning = Math.round(totalWinning);
     profitPercentage = Math.round(profitPercentage);
-
-    // Actualización de los elementos HTML con los resultados totales
     document.getElementById("resultado-ganancia").textContent = totalWinning.toLocaleString('es-ES', { minimumFractionDigits: 2 });
     document.getElementById("resultado-porcentaje").textContent = profitPercentage.toLocaleString('es-ES', { minimumFractionDigits: 2 });
 
-    // Mostrar si es surebet o no
     var specialButton = document.getElementById("specialButton");
     if (isSurebet) {
         specialButton.textContent = "Surebet";
