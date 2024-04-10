@@ -1,19 +1,27 @@
 document.addEventListener("DOMContentLoaded", function() {
-    document.getElementById("calculate").addEventListener("click", calculate);
-    document.getElementById("clear").addEventListener("click", resetAll);
-    document.getElementById("agregar").addEventListener("click", agregarOdd);
+    const calculateButton = document.getElementById("calculate");
+    const clearButton = document.getElementById("clear");
+    const agregarButton = document.getElementById("agregar");
+    const inputContainer = document.querySelector(".input-seccion-v4");
+    const montoInput = document.getElementById("monto");
+    const specialButton = document.getElementById("specialButton");
 
     let inputCount = 4;
 
+    calculateButton.addEventListener("click", calculate);
+    clearButton.addEventListener("click", resetAll);
+    agregarButton.addEventListener("click", agregarOdd);
+
     for (let i = 1; i <= inputCount; i++) {
-        document.getElementById("input" + i).addEventListener("input", function() {
+        const input = document.getElementById("input" + i);
+        input.addEventListener("input", function() {
             if (areTwoInputsFilled() && isAmountFilled()) {
                 calculate();
             }
         });
     }
 
-    document.getElementById("monto").addEventListener("input", function() {
+    montoInput.addEventListener("input", function() {
         if (areTwoInputsFilled() && isAmountFilled()) {
             calculate();
         }
@@ -22,7 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
     function areTwoInputsFilled() {
         let filledCount = 0;
         for (let i = 1; i <= inputCount; i++) {
-            if (document.getElementById("input" + i).value.trim() !== "") {
+            const input = document.getElementById("input" + i);
+            if (input.value.trim() !== "") {
                 filledCount++;
             }
         }
@@ -30,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function isAmountFilled() {
-        return document.getElementById("monto").value.trim() !== "";
+        return montoInput.value.trim() !== "";
     }
 
     function agregarOdd() {
@@ -42,14 +51,13 @@ document.addEventListener("DOMContentLoaded", function() {
         newInput.type = "number";
         newInput.placeholder = "Odd " + inputCount + " ";
 
-        const container = document.querySelector(".input-seccion-v4");
         const columns = Math.min(Math.ceil(inputCount / 2), 2);
         const rows = Math.ceil(inputCount / columns);
 
-        container.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-        container.style.gridTemplateRows = `repeat(${rows}, auto)`;
+        inputContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+        inputContainer.style.gridTemplateRows = `repeat(${rows}, auto)`;
 
-        container.appendChild(newInput);
+        inputContainer.appendChild(newInput);
 
         const newResultDiv = document.createElement("div");
         newResultDiv.className = "result-" + inputCount;
@@ -73,52 +81,65 @@ document.addEventListener("DOMContentLoaded", function() {
         const containerResult = document.querySelector(".resultado");
         containerResult.appendChild(newResultDiv);
         containerResult.appendChild(resultadoTipOdd);
+        // Llamar a calculate automáticamente si los nuevos inputs están completos
+        newInput.addEventListener("input", function() {
+            if (areTwoInputsFilled() && isAmountFilled()) {
+                calculate();
+            }
+        });
     }
 
-    function calculate() {
-        var stake = parseFloat(document.getElementById("monto").value);
-        var totalWinning = 0;
-        var profitPercentage = 0;
-        
-        var result = 0;
-
+    function calculateIndividualBet(result, stake, totalWinning) {
         for (let i = 1; i <= inputCount; i++) {
-            var odd = parseFloat(document.getElementById("input" + i).value);
+            const odd = parseFloat(document.getElementById("input" + i).value);
+            const normalOdd = odd ? (1 / odd) / result : 0;
+            let howMuchbet = odd ? stake * normalOdd : 0;
+            howMuchbet = Math.round(howMuchbet);
+            document.getElementById("resultado-odd" + i).textContent = (odd ? howMuchbet.toLocaleString('es-ES', { minimumFractionDigits: 0 }) : "0.0");
+            const winning = odd ? howMuchbet * odd - stake : 0;
+            totalWinning += winning;
+        }
+        return totalWinning;
+    }
+
+    function calculateTotalResult() {
+        let result = 0;
+        for (let i = 1; i <= inputCount; i++) {
+            const odd = parseFloat(document.getElementById("input" + i).value);
             result += odd ? 1 / odd : 0;
         }
+        return result;
+    }
 
-        var isSurebet = result < 1;
+
+    function calculate() {
+        const stake = parseFloat(montoInput.value);
+        let totalWinning = 0;
+        let profitPercentage = 0;
+        let result = calculateTotalResult();
+
         if (inputCount > 0) {
-            for (let i = 1; i <= inputCount; i++) {
-                var odd = parseFloat(document.getElementById("input" + i).value);
-                var normalOdd = odd ? (1 / odd) / result : 0;
-                var howMuchbet = odd ? stake * normalOdd : 0;
-                howMuchbet = Math.round(howMuchbet);
-                document.getElementById("resultado-odd" + i).textContent = (odd ? howMuchbet.toLocaleString('es-ES', { minimumFractionDigits: 0 }) : "0.0");
-                var winning = odd ? howMuchbet * odd - stake : 0;
-                totalWinning += winning;
-            }
-
+            totalWinning = calculateIndividualBet(result, stake, totalWinning);
             profitPercentage = (totalWinning / (stake * inputCount)) * 100;
         }
         totalWinning = totalWinning/inputCount;
         totalWinning = Math.round(totalWinning);
         profitPercentage = Math.round(profitPercentage);
+
         document.getElementById("resultado-ganancia").textContent = totalWinning.toLocaleString('es-ES', { minimumFractionDigits: 2 });
         document.getElementById("resultado-porcentaje").textContent = profitPercentage.toLocaleString('es-ES', { minimumFractionDigits: 2 });
 
-        var specialButton = document.getElementById("specialButton");
-        if (isSurebet) {
+        if (result < 1) {
             specialButton.textContent = "Surebet";
-            specialButton.style.backgroundColor = "hsl(40.09, 100%, 53.92%)";
+            specialButton.classList.add("isSurbet");
         } else {
             specialButton.textContent = "No Surebet";
-            specialButton.style.backgroundColor = "hsl(220, 89.36%, 18.43%)";
+            specialButton.classList.add("noSurbet");
         }
     }
 
-    function resetAll() {
-        // Restablecer los valores de los inputs y los resultados
+    function resetValues() {
+        // Restablecer los valores de los inputs, los resultados y el botón especial
         for (let i = 1; i <= inputCount; i++) {
             const input = document.getElementById("input" + i);
             if (input) {
@@ -126,8 +147,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("resultado-odd" + i).textContent = "0.00";
             }
         }
-    
-        // Eliminar los elementos adicionales
+
+        document.getElementById("resultado-ganancia").textContent = "0.00";
+        document.getElementById("resultado-porcentaje").textContent = "0.00";
+        specialButton.textContent = "";
+        specialButton.style.backgroundColor = "";
+        specialButton.classList.remove("isSurbet");
+        specialButton.classList.remove("noSurbet");
+    }
+
+    function deleteInputResultAdd() {
         for (let i = 5; i <= inputCount; i++) {
             const inputToRemove = document.getElementById("input" + i);
             if (inputToRemove) {
@@ -144,22 +173,17 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
             }
         }
-    
+    }
+
+    function resetAll() {
+        resetValues();
+        deleteInputResultAdd();
         // Restablecer el contador de inputs y el valor del monto
         inputCount = 4;
-        const montoInput = document.getElementById("monto");
         if (montoInput) {
             montoInput.value = "";
         }
-    
-        // Restablecer los resultados totales y el botón especial
-        document.getElementById("resultado-ganancia").textContent = "0.00";
-        document.getElementById("resultado-porcentaje").textContent = "0.00";
-        const specialButton = document.getElementById("specialButton");
-        if (specialButton) {
-            specialButton.textContent = "";
-            specialButton.style.backgroundColor = "";
-        }
+        inputContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
+        inputContainer.style.gridTemplateRows = "auto";
     }
-    
 });

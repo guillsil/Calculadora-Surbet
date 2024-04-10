@@ -12,8 +12,8 @@
 
 body{
     font-size: 24px;
-    color: variables.$Very-dark-cyan;
-    background-color: variables.$Light-grayish-cyan;
+    color: variables.$Blue-Navi;
+    background-color: variables.$Wedding;
     font-family: variables.$font;
 
     position: relative;
@@ -39,7 +39,7 @@ a:active {
   font-size: 1.5rem;
   font-weight: 700;
   text-decoration: none;
-  color: variables.$Very-dark-cyan;
+  color: variables.$Blue-Navi;
 
   &:hover {
     text-decoration: underline 2px;

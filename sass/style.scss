@@ -4,12 +4,10 @@
 
 @use "mixins";
 
-@use "topnav";
-
 
 .header-titulo{
     text-align: center;
-    color: variables.$Very-dark-cyan;
+    color: variables.$Blue-Navi;
     font-size: 1em;
     margin: 30px 0;
     letter-spacing: 8px;
@@ -19,7 +17,7 @@
 }
 
 .calculadora-container{
-    background-color: variables.$White;
+    background-color: white;
     width: 375px;
     margin: auto;
     border-radius: 16px;
@@ -31,6 +29,9 @@
     display: none;
 }
 
+///////////////////
+/// Inputs  ///
+
 .input-seccion{
     &__odd-label{
         @include mixins.label;
@@ -38,18 +39,18 @@
 
     &__odd-input{
         @include mixins.input('../images/sure.svg');
-        background-color: variables.$Very-lightgrayish-cyan;
+        background-color: variables.$Wedding;
     }
     &__monto-label{
         @include mixins.label;
     }
     &__monto-input{
         @include mixins.input('../images/icon-dollar-two.svg');
-        background-color: variables.$Light-grayish-cyan;
+        background-color: variables.$Wedding;
     }
     &__titulo{
         font-size: 0.8em;
-        color: variables.$Dark-grayish-cyan;
+        color: variables.$Blue-Navi;
         margin-bottom: 10px;
     }
 }
@@ -58,14 +59,14 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
-    &__odd-label {
-      display: none;
-    }
     &__odd-input {
         @include mixins.input('../images/sure.svg');
-        background-color: variables.$Very-lightgrayish-cyan;
+        background-color: variables.$Wedding;
       }
 }
+
+///////////////////////
+/// Botones  ///
 
 .btns{
     @include mixins.btns;
@@ -73,62 +74,49 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.btns-status{
-    @include mixins.btns;
-    margin-bottom: 15px;
-    grid-template-columns: 1fr;
-}
-.btns-status-pressed{
-    @include mixins.btns;
-    margin-bottom: 5px;
-    grid-template-columns: 1fr;
-}
-.pressed-status{
-    margin-bottom: 1px;
-}
-
-.btns-status__boton{
-    width: 100%;
-    height: 30px;
-    font-size: 0.8em;
-    font-family: variables.$font;
-    border: none;
-    border-radius: 4px;
-    color: variables.$Light-grayish-cyan;
-    background-color: variables.$Dark-grayish-cyan;
-}
-.pressed{
-    width: 147;
-    font-size: 1em;
-    height: 45px;
-}
   
 .btns__boton{
     width: 147px;
     height: 45px;
     font-size: 1em;
-    @include mixins.btns-boton(variables.$Very-dark-cyan);
+    @include mixins.btns-boton(variables.$Blue-Navi);
     &__custom{
-        background-color: variables.$Very-dark-cyan;
+        background-color: variables.$Blue-Navi;
         width: 100%;
         &__add{
-            background-color: variables.$Strong-cyan;
+            background-color: variables.$Yellow;
             width: 100%;
             &:hover{
                 cursor: pointer;
-                background-color: variables.$Strong-cyan-two;
+                background-color: variables.$Yellow;
             }
         }
     }
     
 }
 
-.error{
-    border: 2px solid red;
+.btns-status{
+    @include mixins.btns;
+    margin-bottom: 15px;
+    grid-template-columns: 1fr;
 }
 
+
+.btns-status__boton{
+    @include mixins.boton-status(variables.$Blue-Navi);
+    &.isSurbet{
+        background-color: hsl(40.09, 100%, 53.92%);
+    }
+    &.noSurbet{
+        background-color: hsl(220, 89.36%, 18.43%);
+    }
+}
+
+///////////////////////
+/// Resultados  ///
+
 .result-seccion{
-    background-color: variables.$Very-dark-cyan;
+    background-color: variables.$Blue-Navi;
     border-radius: 8px;
     padding: 32px 24px 24px;
     margin-bottom: 15px;
@@ -141,16 +129,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     &__odd{ 
-        font-size: 0.5em;
-        color: variables.$Very-lightgrayish-cyan
+        font-size: 0.6em;
+        color: whitesmoke;
     }
     &__valor{
         font-size: 0.65em;
-        color: variables.$Light-grayish-cyan;
+        color: variables.$Wedding;
     }
     &__tip-odd{
         font-size: 0.9em;
-        color: variables.$Strong-cyan;
+        color: variables.$Yellow;
         text-align: right;
     }
     &__result-abajo{
@@ -159,7 +147,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         margin-top: 10px;
-        color: variables.$Light-grayish-cyan;
+        color: variables.$Wedding;
         &__porcentaje{
             background: url('../images/percent.svg') no-repeat 10px center;
             background-size: 0.8em;
@@ -176,9 +164,9 @@
 }
 
 .result-seccion__reset{
-    background-color: variables.$Strong-cyan;
+    background-color: variables.$Yellow;
     font-family: variables.$font;
-    color: variables.$Very-dark-cyan;
+    color: whitesmoke;
     border: none;
     text-transform: uppercase;
     border-radius: 4px;
@@ -188,24 +176,29 @@
     transition-duration: 1s;
     &:hover{
         cursor: pointer;
-        background-color: variables.$Strong-cyan-two;
+        background-color: variables.$Yellow;
     }
 }
 
+///////////////////////
+/// footer  ///
+  
 .attribution { 
     font-size: 14px; 
     text-align: center; 
     margin: 10px 0;
 }
-
-
 .attribution a { 
-    color: hsl(228, 45%, 44%);
+    color: variables.$Yellow
+    ;
     font-size: 15px;
     
 }
+///////////////////////
+/// Media Queries  ///
 
-///////////////////////////            Desktop        ////////////////////////
+///////////////////////////
+///////  Desktop   ///////
 @media (min-width: 1024px){
     .header-titulo{
         margin: 30px 0 30px;
@@ -237,28 +230,5 @@
     }
     .attribution{
         margin: 100px 0 100px;
-    }
-    .attribution2{
-        margin: 100px 0 100px;
-    }
-    .resultado{
-        &__odd1{
-            font-size: 0.8em;
-        }
-        &__valor1{
-            font-size: 0.7em;
-        }
-        &__tip-odd1{
-            font-size: 1em;
-        }
-        &__odd2{
-            @extend .resultado__odd1;
-        }
-        &__valor2{
-            @extend .resultado__valor1;
-        }
-        &__tip-odd2{
-            @extend .resultado__tip-odd1;
-        }
-    }
+    }   
 }
