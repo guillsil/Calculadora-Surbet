@@ -45,7 +45,7 @@
         @include mixins.label;
     }
     &__monto-input{
-        @include mixins.input('../images/icon-dollar-three.svg');
+        @include mixins.input('../images/icon-dollar-two.svg');
         background-color: variables.$Wedding;
     }
     &__titulo{
@@ -138,7 +138,7 @@
     }
     &__tip-odd{
         font-size: 0.9em;
-        color: variables.$Yellow;
+        color: variables.$Wedding;
         text-align: right;
     }
     &__result-abajo{
@@ -147,7 +147,7 @@
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         margin-top: 10px;
-        color: variables.$Yellow;
+        color: variables.$Wedding;
         &__porcentaje{
             background: url('../images/percentage.svg') no-repeat 10px center;
             background-size: 0.8em;

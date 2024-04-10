@@ -121,7 +121,7 @@ a:active:hover {
   height: 40px;
   margin-bottom: 5px;
   background-color: #FFF455;
-  background: url("../images/icon-dollar-three.svg") no-repeat 10px center;
+  background: url("../images/icon-dollar-two.svg") no-repeat 10px center;
   background-size: 0.8em;
   background-color: #FFF455;
 }
@@ -258,7 +258,7 @@ a:active:hover {
 }
 .resultado__tip-odd {
   font-size: 0.9em;
-  color: #FFC700;
+  color: #FFF455;
   text-align: right;
 }
 .resultado__result-abajo {
@@ -267,7 +267,7 @@ a:active:hover {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-top: 10px;
-  color: #FFC700;
+  color: #FFF455;
 }
 .resultado__result-abajo__porcentaje {
   background: url("../images/percentage.svg") no-repeat 10px center;
