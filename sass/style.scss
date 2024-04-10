@@ -90,7 +90,7 @@
         &__add{
             background-color: variables.$Mint;
             width: 100%;
-            color: variables.$Blue-Navi;
+            color: whitesmoke;
             &:hover{
                 cursor: pointer;
                 background-color: variables.$Wedding;
@@ -173,7 +173,7 @@
 .result-seccion__reset{
     background-color: variables.$Mint;
     font-family: variables.$font;
-    color: variables.$Blue-Navi;
+    color: whitesmoke;
     border: none;
     text-transform: uppercase;
     border-radius: 4px;

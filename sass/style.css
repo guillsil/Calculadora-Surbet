@@ -207,7 +207,7 @@ a:active:hover {
 .btns__boton__custom__add {
   background-color: #4CCD99;
   width: 100%;
-  color: #007F73;
+  color: whitesmoke;
 }
 .btns__boton__custom__add:hover {
   cursor: pointer;
@@ -291,7 +291,7 @@ a:active:hover {
 .result-seccion__reset {
   background-color: #4CCD99;
   font-family: "Space Mono", monospace;
-  color: #007F73;
+  color: whitesmoke;
   border: none;
   text-transform: uppercase;
   border-radius: 4px;
