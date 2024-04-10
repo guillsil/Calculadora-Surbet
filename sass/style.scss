@@ -103,11 +103,11 @@
 .btns-status__boton{
     @include mixins.boton-status(variables.$Blue-Navi);
     &.isSurbet{
-        background-color: #FFC700;
+        background-color: variables.$Wedding;
         color: white;
     }
     &.noSurbet{
-        background-color: #4CCD99;
+        background-color: variables.$Blue-Navi;
         color: white;
     }
 }
