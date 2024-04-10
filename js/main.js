@@ -185,5 +185,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         inputContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
         inputContainer.style.gridTemplateRows = "auto";
+
+        // Mover la página hacia arriba
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     }
 });
