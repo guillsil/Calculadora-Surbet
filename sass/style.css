@@ -200,6 +200,10 @@ a:active:hover {
   background-color: #007F73;
   width: 100%;
 }
+.btns__boton__custom:hover {
+  cursor: pointer;
+  background-color: #FFC700;
+}
 .btns__boton__custom__add {
   background-color: #4CCD99;
   width: 100%;
@@ -207,7 +211,7 @@ a:active:hover {
 }
 .btns__boton__custom__add:hover {
   cursor: pointer;
-  background-color: #FFC700;
+  background-color: #FFF455;
 }
 
 .btns-status {
@@ -298,7 +302,7 @@ a:active:hover {
 }
 .result-seccion__reset:hover {
   cursor: pointer;
-  background-color: #FFC700;
+  background-color: #FFF455;
 }
 
 .attribution {

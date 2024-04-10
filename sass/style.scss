@@ -83,13 +83,17 @@
     &__custom{
         background-color: variables.$Blue-Navi;
         width: 100%;
+        &:hover{
+            cursor: pointer;
+            background-color: variables.$Yellow;
+        }
         &__add{
-            background-color: variables.$Turquesa;
+            background-color: variables.$Mint;
             width: 100%;
             color: variables.$Blue-Navi;
             &:hover{
                 cursor: pointer;
-                background-color: variables.$Yellow;
+                background-color: variables.$Wedding;
             }
         }
     }
@@ -167,7 +171,7 @@
 }
 
 .result-seccion__reset{
-    background-color: variables.$Turquesa;
+    background-color: variables.$Mint;
     font-family: variables.$font;
     color: variables.$Blue-Navi;
     border: none;
@@ -179,7 +183,7 @@
     transition-duration: 1s;
     &:hover{
         cursor: pointer;
-        background-color: variables.$Yellow;
+        background-color: variables.$Wedding;
     }
 }
 
