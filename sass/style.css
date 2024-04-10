@@ -100,7 +100,7 @@ a:active:hover {
 }
 .input-seccion__odd-input:focus {
   outline: none;
-  border: 2px solid #FFC700;
+  border: 2px solid #007F73;
 }
 .input-seccion__odd-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -130,7 +130,7 @@ a:active:hover {
 }
 .input-seccion__monto-input:focus {
   outline: none;
-  border: 2px solid #FFC700;
+  border: 2px solid #007F73;
 }
 .input-seccion__monto-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -166,7 +166,7 @@ a:active:hover {
 }
 .input-seccion-v4__odd-input:focus {
   outline: none;
-  border: 2px solid #FFC700;
+  border: 2px solid #007F73;
 }
 .input-seccion-v4__odd-input::-webkit-inner-spin-button {
   -webkit-appearance: none;
@@ -299,6 +299,7 @@ a:active:hover {
 }
 
 .attribution {
+  font-family: "Space Mono", monospace;
   font-size: 14px;
   text-align: center;
   margin: 10px 0;
