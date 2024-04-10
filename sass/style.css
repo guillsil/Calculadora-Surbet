@@ -92,6 +92,7 @@ a:active:hover {
   margin-bottom: 5px;
   background-color: #FFF455;
   background: url("../images/sure.svg") no-repeat 10px center;
+  background-size: 0.8em;
   background-color: #FFF455;
 }
 .input-seccion__odd-input:hover {
@@ -120,7 +121,8 @@ a:active:hover {
   height: 40px;
   margin-bottom: 5px;
   background-color: #FFF455;
-  background: url("../images/icon-dollar-two.svg") no-repeat 10px center;
+  background: url("../images/icon-dollar-three.svg") no-repeat 10px center;
+  background-size: 0.8em;
   background-color: #FFF455;
 }
 .input-seccion__monto-input:hover {
@@ -155,7 +157,8 @@ a:active:hover {
   height: 40px;
   margin-bottom: 5px;
   background-color: #FFF455;
-  background: url("../images/sure.svg") no-repeat 10px center;
+  background: url("../images/chart-pie-alt.svg") no-repeat 10px center;
+  background-size: 0.8em;
   background-color: #FFF455;
 }
 .input-seccion-v4__odd-input:hover {
@@ -261,14 +264,14 @@ a:active:hover {
 }
 .resultado__result-abajo {
   display: grid;
-  font-size: 0.5em;
+  font-size: 0.6em;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-top: 10px;
-  color: #FFF455;
+  color: #FFC700;
 }
 .resultado__result-abajo__porcentaje {
-  background: url("../images/percent.svg") no-repeat 10px center;
+  background: url("../images/percentage.svg") no-repeat 10px center;
   background-size: 0.8em;
   padding-left: 30px;
 }
@@ -302,7 +305,7 @@ a:active:hover {
 }
 
 .attribution a {
-  color: #FFC700;
+  color: #007F73;
   font-size: 15px;
 }
 

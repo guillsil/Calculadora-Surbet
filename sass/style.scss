@@ -45,7 +45,7 @@
         @include mixins.label;
     }
     &__monto-input{
-        @include mixins.input('../images/icon-dollar-two.svg');
+        @include mixins.input('../images/icon-dollar-three.svg');
         background-color: variables.$Wedding;
     }
     &__titulo{
@@ -60,7 +60,7 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     &__odd-input {
-        @include mixins.input('../images/sure.svg');
+        @include mixins.input('../images/chart-pie-alt.svg');
         background-color: variables.$Wedding;
       }
 }
@@ -143,13 +143,13 @@
     }
     &__result-abajo{
         display: grid;
-        font-size: 0.5em;
+        font-size: 0.6em;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         margin-top: 10px;
-        color: variables.$Wedding;
+        color: variables.$Yellow;
         &__porcentaje{
-            background: url('../images/percent.svg') no-repeat 10px center;
+            background: url('../images/percentage.svg') no-repeat 10px center;
             background-size: 0.8em;
             padding-left: 30px;
         }
@@ -189,8 +189,7 @@
     margin: 10px 0;
 }
 .attribution a { 
-    color: variables.$Yellow
-    ;
+    color: variables.$Blue-Navi;
     font-size: 15px;
     
 }
