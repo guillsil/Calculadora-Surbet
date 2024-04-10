@@ -84,8 +84,9 @@
         background-color: variables.$Blue-Navi;
         width: 100%;
         &__add{
-            background-color: variables.$Yellow;
+            background-color: variables.$Turquesa;
             width: 100%;
+            color: variables.$Blue-Navi;
             &:hover{
                 cursor: pointer;
                 background-color: variables.$Yellow;
@@ -105,10 +106,12 @@
 .btns-status__boton{
     @include mixins.boton-status(variables.$Blue-Navi);
     &.isSurbet{
-        background-color: hsl(40.09, 100%, 53.92%);
+        background-color: #FFC700;
+        color: white;
     }
     &.noSurbet{
-        background-color: hsl(220, 89.36%, 18.43%);
+        background-color: #4CCD99;
+        color: white;
     }
 }
 
@@ -164,9 +167,9 @@
 }
 
 .result-seccion__reset{
-    background-color: variables.$Yellow;
+    background-color: variables.$Turquesa;
     font-family: variables.$font;
-    color: whitesmoke;
+    color: variables.$Blue-Navi;
     border: none;
     text-transform: uppercase;
     border-radius: 4px;

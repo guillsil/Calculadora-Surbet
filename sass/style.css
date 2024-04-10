@@ -201,8 +201,9 @@ a:active:hover {
   width: 100%;
 }
 .btns__boton__custom__add {
-  background-color: #FFC700;
+  background-color: #4CCD99;
   width: 100%;
+  color: #007F73;
 }
 .btns__boton__custom__add:hover {
   cursor: pointer;
@@ -229,10 +230,12 @@ a:active:hover {
   background-color: #007F73;
 }
 .btns-status__boton.isSurbet {
-  background-color: hsl(40.09, 100%, 53.92%);
+  background-color: #FFC700;
+  color: white;
 }
 .btns-status__boton.noSurbet {
-  background-color: hsl(220, 89.36%, 18.43%);
+  background-color: #4CCD99;
+  color: white;
 }
 
 .result-seccion {
@@ -282,9 +285,9 @@ a:active:hover {
 }
 
 .result-seccion__reset {
-  background-color: #FFC700;
+  background-color: #4CCD99;
   font-family: "Space Mono", monospace;
-  color: whitesmoke;
+  color: #007F73;
   border: none;
   text-transform: uppercase;
   border-radius: 4px;
