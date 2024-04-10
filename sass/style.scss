@@ -83,18 +83,11 @@
     &__custom{
         background-color: variables.$Blue-Navi;
         width: 100%;
-        &:hover{
-            cursor: pointer;
-            background-color: variables.$Yellow;
-        }
         &__add{
             background-color: variables.$Mint;
             width: 100%;
             color: whitesmoke;
-            &:hover{
-                cursor: pointer;
-                background-color: variables.$Wedding;
-            }
+            
         }
     }
     
@@ -181,10 +174,7 @@
     height: 50px;
     margin-top: 10px;
     transition-duration: 1s;
-    &:hover{
-        cursor: pointer;
-        background-color: variables.$Wedding;
-    }
+    
 }
 
 ///////////////////////
