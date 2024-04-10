@@ -104,7 +104,7 @@
     @include mixins.boton-status(variables.$Blue-Navi);
     &.isSurbet{
         background-color: variables.$Wedding;
-        color: white;
+        color: variables.$Blue-Navi;
     }
     &.noSurbet{
         background-color: variables.$Blue-Navi;

@@ -227,7 +227,7 @@ a:active:hover {
 }
 .btns-status__boton.isSurbet {
   background-color: #FFF455;
-  color: white;
+  color: #007F73;
 }
 .btns-status__boton.noSurbet {
   background-color: #007F73;
